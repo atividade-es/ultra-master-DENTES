@@ -31,4 +31,4 @@ Projeto para implementação de um SaaS em Ruby e Rails com foco no servidor par
 O sistema visa facilitar o processo de agendamento e gerenciamento de consultas, garantindo que cada tipo de usuário tenha as permissões e funcionalidades adequadas de acordo com sua função no consultório médico.
 
 ## :construction: Status do Projeto
-Em fase inicial de desenvolvimento.
+Projeto em fase inicial de desenvolvimento.
