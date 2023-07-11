@@ -90,4 +90,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # railway hostname permission
+  config.hosts << "ultra-master-dentes-production.up.railway.app"
 end
