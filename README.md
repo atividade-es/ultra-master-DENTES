@@ -1,7 +1,7 @@
 # ultra-master-DENTES 👨‍⚕️🦷
 
 :octocat: Integrantes:\
-[Erik César](https://github.com/Kire87) | [Izabel Nascimento](https://github.com/izabelnascimento) | [Lucas Branco](https://github.com/LBranco27) | [Luís Guilherme](https://github.com/Nidhoggui) |[Rochel Angelo](https://github.com/rochelangelo)
+[Andrew Lopes](https://github.com/andrewlopes11) | [Erik César](https://github.com/Kire87) | [Izabel Nascimento](https://github.com/izabelnascimento) | [Lucas Branco](https://github.com/LBranco27) | [Luís Guilherme](https://github.com/Nidhoggui) |[Rochel Angelo](https://github.com/rochelangelo)
 
 Railway:\
 https://ultra-master-dentes-production.up.railway.app/
