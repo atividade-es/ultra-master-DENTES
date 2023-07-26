@@ -1,7 +1,7 @@
 # ultra-master-DENTES 👨‍⚕️🦷
 
 :octocat: Integrantes:\
-[Erik César](https://github.com/Kire87) | [Izabel Nascimento](https://github.com/izabelnascimento) | [Lucas Branco](https://github.com/LBranco27) | [Luís Guilherme](https://github.com/Nidhoggui) |[Rochel Angelo](https://github.com/rochelangelo)
+[Andrew Lopes](https://github.com/andrewlopes11) | [Erik César](https://github.com/Kire87) | [Izabel Nascimento](https://github.com/izabelnascimento) | [Lucas Branco](https://github.com/LBranco27) | [Luís Guilherme](https://github.com/Nidhoggui) |[Rochel Angelo](https://github.com/rochelangelo)
 
 Railway:\
 https://ultra-master-dentes-production.up.railway.app/
@@ -32,3 +32,8 @@ O sistema visa facilitar o processo de agendamento e gerenciamento de consultas,
 
 ## :construction: Status do Projeto
 Em fase inicial de desenvolvimento.
+
+
+
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e04561a6937a429cb5308b38358aef9e)](https://app.codacy.com/gh/rochelangelo/ultra-master-DENTES/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
