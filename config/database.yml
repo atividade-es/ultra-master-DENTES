@@ -26,7 +26,7 @@ production:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   url: <%= ENV["DATABASE_URL"] %>
   database: railwayapp_production
-  username: railwayapp
+  username: ultra_master_dentes_postgresql_user
   password: <%= ENV["RAILWAYAPP_DATABASE_PASSWORD"] %>
 
 actions:
