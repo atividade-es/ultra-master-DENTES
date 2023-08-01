@@ -1,0 +1,23 @@
+<table border="2" align="center" bgcolor="#228b22">
+  <tr>
+    <td colspan="2">
+      <table>
+        <tr>
+          <td>
+            Pacientes
+          </td>
+          <td>
+            [img]
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <% @patient.each do |patient| %>
+    <tr>
+      <td>
+        <%= link_to patient.name, patient %>
+      </td>
+    </tr>
+  <% end %>
+</table>

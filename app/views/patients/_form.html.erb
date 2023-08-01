@@ -1,0 +1,43 @@
+<%= form_with model: patient do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> ocorreram durante o cadastro:</h2>
+      <ul>
+        <% patient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table border="1" align="center" bgcolor="#6495ed">
+    <tr>
+      <td>
+        <table border="2" align="center" bgcolor="#6495ed">
+          <tr>
+            <td>
+              <%= form.label :nome %>
+            </td>
+            <td>
+              <%= form.text_field :name %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= form.label :email %>
+            </td>
+            <td>
+              <%= form.email_field :email %>
+            </td>
+          </tr>
+        </table>
+      </td>
+    <tr>
+      <td colspan="2">
+        <div align="center">
+          <%= form.submit %>
+        </div>
+      </td>
+    </tr>
+  </table>
+<% end %>
