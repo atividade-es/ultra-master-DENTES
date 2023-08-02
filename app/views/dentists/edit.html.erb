@@ -1,0 +1,4 @@
+<h1>Editar Dentista</h1>
+<%= render 'form', dentist: @dentist %>
+
+<%= button_to "Excluir Dentista", dentist_path(@dentist), method: :delete, data: { confirm: 'Você tem certeza que deseja excluir este dentista?' } %>
