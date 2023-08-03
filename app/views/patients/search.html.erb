@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buscar Paciente</title>
+</head>
+<body>
+<h1>Buscar Paciente</h1>
+
+<%= form_with model: @patient, url: search_paciente_path, method: :get do |form| %>
+  <div>
+    <label for="search_name">Nome:</label>
+    <%= form.text_field :name, id: "search_name" %>
+  </div>
+
+  <div>
+    <label for="search_cpf">CPF:</label>
+    <%= form.text_field :cpf, id: "search_cpf" %>
+  </div>
+
+  <div>
+    <%= form.submit "Buscar" %>
+  </div>
+<% end %>
+
+<% if @patients.present? %>
+  <h2>Resultados da busca:</h2>
+  <ul>
+    <% @patients.each do |patient| %>
+      <li>
+        <p><strong>Nome:</strong> <%= patient.name %></p>
+        <p><strong>Email:</strong> <%= patient.email %></p>
+        <p><strong>CPF:</strong> <%= patient.cpf %></p>
+        <hr>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhum paciente encontrado.</p>
+<% end %>
+</body>
+</html>
