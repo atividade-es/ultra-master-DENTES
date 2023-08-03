@@ -59,7 +59,7 @@ When('I click on the name of the desired dentist') do
   click_on "Dr. Drake Ramoray"
 end
 
-When('I click on the {string} link of the desired dentist') do |string|
+When('I click on the {string} link of the desired dentist') do
   click_on "Editar"
 end
 
