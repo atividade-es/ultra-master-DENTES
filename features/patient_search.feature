@@ -7,3 +7,10 @@ Feature: Busca de consultas
     Given I am in 'Welcome' page
     When I click on the 'Buscar paciente' link
     Then I see a view with title 'Buscar Paciente'
+
+  Scenario: Search an existent patient by name
+    Given The patient with name 'Nome do Paciente' exists
+    And I am in the 'Buscar Paciente' page
+    And I fill the 'name' with 'Nome do Paciente'
+    When I click on the button 'Buscar'
+    Then I see the patient name 'Nome do Paciente'
