@@ -74,3 +74,7 @@ Given('The patient with name {string} and cpf {int} exists') do |name, cpf|
   click_on 'Create Patient'
   expect(page).to have_content('Dados do Paciente')
 end
+
+Then('I see the message {string}') do |message|
+  expect(page).to have_content(message)
+end

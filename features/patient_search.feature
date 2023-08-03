@@ -30,3 +30,15 @@ Feature: Busca de consultas
     When I click on the button 'Buscar'
     Then I see the patient name 'Nome do Paciente C'
     Then I see the patient cpf 98765432112
+
+  Scenario: Search an existent patient by name
+    Given I am in the 'Buscar Paciente' page
+    And I fill the 'name' with 'Nome do Paciente'
+    When I click on the button 'Buscar'
+    Then I see the message 'Nenhum paciente encontrado'
+
+  Scenario: Search a nonexistent patient by cpf
+    Given I am in the 'Buscar Paciente' page
+    And I fill the 'cpf' with 98765432112
+    When I click on the button 'Buscar'
+    Then I see the message 'Nenhum paciente encontrado'
