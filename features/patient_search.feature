@@ -21,3 +21,12 @@ Feature: Busca de consultas
     And I fill the 'cpf' with 98765432112
     When I click on the button 'Buscar'
     Then I see the patient cpf 98765432112
+
+  Scenario: Search an existent patient by name and cpf
+    Given The patient with name 'Nome do Paciente C' and cpf 98765432112 exists
+    And I am in the 'Buscar Paciente' page
+    And I fill the 'cpf' with 98765432112
+    And I fill the 'name' with 'Nome do Paciente C'
+    When I click on the button 'Buscar'
+    Then I see the patient name 'Nome do Paciente C'
+    Then I see the patient cpf 98765432112

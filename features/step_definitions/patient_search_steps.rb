@@ -61,3 +61,16 @@ end
 Then('I see the patient cpf {int}') do |cpf|
   expect(page).to have_content(cpf)
 end
+
+#------------------------------------------------------------------------
+
+Given('The patient with name {string} and cpf {int} exists') do |name, cpf|
+  visit 'patients/new'
+  expect(page).to have_content('Cadastro')
+  fill_in 'patient_name', with: name
+  fill_in 'patient_cpf', with: cpf
+  fill_in 'patient_email', with: "patientb@email.com"
+
+  click_on 'Create Patient'
+  expect(page).to have_content('Dados do Paciente')
+end
