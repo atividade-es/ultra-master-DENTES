@@ -5,7 +5,7 @@ Feature: Manage dentists
 
   Scenario: Add a dentist
     Given I open the 'Cadastar dentista' dentist page
-    When I fill all fields with valid information
+    When I fill all dentist fields with valid information
     And I click on the 'Create Dentist' button
     Then I see that this dentist was saved
 
@@ -16,7 +16,7 @@ Feature: Manage dentists
 
   Scenario: View a dentist's details
     Given there is a dentist with the name "Dr. Drake Ramoray" and specialization "Clínico Geral"
-    And I open the dentist page
+    And I open dentist index page
     When I click on the name of the desired dentist
     Then I see the details of "Dr. Drake Ramoray" displayed
 
@@ -25,5 +25,5 @@ Feature: Manage dentists
     And I open the dentist page
     When I click on the 'Editar' link of the desired dentist
     And I update the dentist's name to "Dr. Jane Johnson"
-    And I click on the 'Update Dentist' button
+    And I click on the 'Update Dentist' button2
     Then I see that the dentist information was updated

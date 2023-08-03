@@ -1,10 +1,11 @@
 Given('I open the {string} dentist page') do |string|
-  visit send("#{string}_dentists_path")
+  visit 'dentists/new'
+  expect(page).to have_content('Cadastrar Dentista')
 end
 
-When('I fill all fields with valid information') do
+When('I fill all dentist fields with valid information') do
   fill_in 'dentist_nome', with: "Dr. Drake Ramoray"
-  fill_in 'dentist_especializacao', with: "Clínico Geral"
+  select "Clínico Geral", :from => "dentist_especializacao"
   check 'dentist_disponivel_segunda'
   uncheck 'dentist_disponivel_terca'
   check 'dentist_disponivel_quarta'
@@ -37,8 +38,8 @@ Given('I open the dentist page') do
   visit dentist_path(dentist)
 end
 
-When('I click on the {string} link of the desired dentist') do
-  click_on "Excluir Dentista"
+When('I click on the {string} link of the desired dentist') do |delete|
+  click_on delete
 end
 
 Then('I see that this dentist was deleted') do
@@ -48,18 +49,23 @@ end
 Then('I see the details of {string} displayed') do |string|
   assert_text(string)
   assert_text('Clínico Geral')
-  assert_text('Disponibilidade:')
+  assert_text('Dias de Atendimento:')
 end
 
 Given('there is a dentist with the name {string} and specialization {string}') do |name, specialization|
   Dentist.create(nome: name, especializacao: specialization)
 end
 
+When('I open dentist index page') do
+  visit 'dentists/'
+end
+
 When('I click on the name of the desired dentist') do
+  expect(page).to have_content('Dr. Drake Ramoray')
   click_on "Dr. Drake Ramoray"
 end
 
-When('I click on the {string} link of the desired dentist') do
+When('I click on the {string} link of the desired dentist2') do
   click_on "Editar"
 end
 
@@ -67,7 +73,7 @@ When('I update the dentist\'s name to {string}') do |new_name|
   fill_in 'dentist_nome', with: new_name
 end
 
-When('I click on the {string} button') do |string|
+When('I click on the {string} button2') do |string|
   click_button string
 end
 

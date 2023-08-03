@@ -14,4 +14,7 @@
 </p>
 
 <%= link_to 'Editar', edit_dentist_path(@dentist) %> |
-<%= link_to 'Voltar', dentists_path %>
+<%= link_to 'Voltar', dentists_path %> |
+<%= link_to "Excluir Dentista", dentist_path(@dentist), data: {
+  turbo_method: :delete
+} %>
