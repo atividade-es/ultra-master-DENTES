@@ -15,20 +15,20 @@ Projeto para implementação de um SaaS em Ruby e Rails com foco no servidor par
 
 ## Cadastro e Gerenciamento de Usuários:
 
-    - O administrador tem a capacidade de cadastrar, editar, remover e visualizar informações de recepcionistas, pacientes e a si mesmo.
-    - O administrador também pode cadastrar, editar e remover outros administradores, mas não visualizá-los.
-    - O recepcionista pode editar e visualizar apenas as suas próprias informações.
+-   O administrador tem a capacidade de cadastrar, editar, remover e visualizar informações de recepcionistas, pacientes e a si mesmo.
+-   O administrador também pode cadastrar, editar e remover outros administradores, mas não visualizá-los.
+-   O recepcionista pode editar e visualizar apenas as suas próprias informações.
 
 ## Cadastro de Dentistas:
 
-    - O administrador pode cadastrar dentistas no sistema.
-    - As informações dos dentistas cadastrados serão visíveis para os pacientes ao marcar uma consulta, permitindo que eles selecionem um dentista disponível.
+-   O administrador pode cadastrar dentistas no sistema.
+-   As informações dos dentistas cadastrados serão visíveis para os pacientes ao marcar uma consulta, permitindo que eles selecionem um dentista disponível.
 
 ## Marcação de Consultas:
 
-    - Os pacientes podem marcar consultas em horários disponíveis, que não tenham sido ocupados por outros pacientes.
-    - Os recepcionistas podem alterar os horários dos dentistas, se necessário, e podem marcar ou desmarcar consultas para os pacientes.
-    - Os recepcionistas também podem confirmar a presença do paciente no consultório, registrando informações como horário, nome do dentista, paciente, entre outros.
+-   Os pacientes podem marcar consultas em horários disponíveis, que não tenham sido ocupados por outros pacientes.
+-   Os recepcionistas podem alterar os horários dos dentistas, se necessário, e podem marcar ou desmarcar consultas para os pacientes.
+-   Os recepcionistas também podem confirmar a presença do paciente no consultório, registrando informações como horário, nome do dentista, paciente, entre outros.
 
 O sistema visa facilitar o processo de agendamento e gerenciamento de consultas, garantindo que cada tipo de usuário tenha as permissões e funcionalidades adequadas de acordo com sua função no consultório médico.
 
