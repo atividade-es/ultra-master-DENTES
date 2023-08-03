@@ -38,9 +38,24 @@ class PatientsController < ApplicationController
     @patient.destroy
     redirect_to root_path, status: :see_other
   end
-end
 
-private
-def patient_params
-  params.require(:patient).permit(:name, :email, :cpf)
+  def search
+    name = params[:name]
+    cpf = params[:cpf]
+
+    if name.present? && cpf.present?
+      @patients = Patient.where('name LIKE ? AND cpf LIKE ?', "%#{name}%", "%#{cpf}%")
+    elsif name.present?
+      @patients = Patient.where('name LIKE ?', "%#{name}%")
+    elsif cpf.present?
+      @patients = Patient.where('cpf LIKE ?', "%#{cpf}%")
+    else
+      @patients = Patient.all
+    end
+  end
+
+  private
+  def patient_params
+    params.require(:patient).permit(:name, :email, :cpf)
+  end
 end
