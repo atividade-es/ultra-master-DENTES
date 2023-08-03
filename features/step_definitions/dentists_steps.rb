@@ -1,6 +1,6 @@
-Given('I open the {string} dentist page') do |string|
+Given('I open the {string} dentist page') do |content|
   visit 'dentists/new'
-  expect(page).to have_content('Cadastrar Dentista')
+  expect(page).to have_content(content)
 end
 
 When('I fill all dentist fields with valid information') do
@@ -73,8 +73,8 @@ When('I update the dentist\'s name to {string}') do |new_name|
   fill_in 'dentist_nome', with: new_name
 end
 
-When('I click on the {string} button2') do |string|
-  click_button string
+When('I click on the {string} button2') do |content|
+  click_button content
 end
 
 Then('I see that the dentist information was updated') do
