@@ -37,7 +37,7 @@ Given('I open the dentist page') do
   visit dentist_path(dentist)
 end
 
-When('I click on the {string} link of the desired dentist') do |string|
+When('I click on the {string} link of the desired dentist') do
   click_on "Excluir Dentista"
 end
 
