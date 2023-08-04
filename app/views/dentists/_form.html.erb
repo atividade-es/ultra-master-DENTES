@@ -1,0 +1,31 @@
+<%= form_with model: @dentist do |form| %>
+  <%= form.label :nome %>
+  <%= form.text_field :nome %>
+
+  <%= form.label :especializacao %>
+  <%= form.select :especializacao, ['Ortodontia', 'Endodontia', 'Implantodontia', 'Clínico Geral', 'Periodontia', 'Odontopediatria', 'Cirurgia Bucomaxilofacial'] %>
+
+  <h3>Dias de Atendimento:</h3>
+  <%= form.label :disponivel_segunda, 'Segunda-feira' %>
+  <%= form.check_box :disponivel_segunda %>
+
+  <%= form.label :disponivel_terca, 'Terça-feira' %>
+  <%= form.check_box :disponivel_terca %>
+
+  <%= form.label :disponivel_quarta, 'Quarta-feira' %>
+  <%= form.check_box :disponivel_quarta %>
+
+  <%= form.label :disponivel_quinta, 'Quinta-feira' %>
+  <%= form.check_box :disponivel_quinta %>
+
+  <%= form.label :disponivel_sexta, 'Sexta-feira' %>
+  <%= form.check_box :disponivel_sexta %>
+
+  <%= form.label :disponivel_sabado, 'Sábado' %>
+  <%= form.check_box :disponivel_sabado %>
+
+  <%= form.label :disponivel_domingo, 'Domingo' %>
+  <%= form.check_box :disponivel_domingo %>
+
+  <%= form.submit %>
+<% end %>

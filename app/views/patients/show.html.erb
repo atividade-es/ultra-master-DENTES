@@ -1,0 +1,74 @@
+<table border="1" bgcolor=#daa520 align="center">
+  <tr>
+    <td>
+      <table border="2" align="center" bgcolor=#5f9ea0>
+        <tr>
+          <td colspan="2">
+            <div align="center">
+              Dados do Paciente
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nome:
+          </td>
+          <td>
+            <%= @patient.name %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            E-mail:
+          </td>
+          <td>
+            <%= @patient.email %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            CPF:
+          </td>
+          <td>
+            <%= @patient.cpf %>
+          </td>
+        </tr>
+      </table>
+      <br>
+    </td>
+  </tr>
+</table>
+<br>
+<table border="2" align="center" bgcolor="#228b22">
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td>
+            <%= link_to "Editar", edit_patient_path(@patient) %>
+          </td>
+          <td>
+            [img]
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td>
+            <%= link_to "Deletar", patient_path(@patient), data: {
+              turbo_method: :delete,
+              turbo_confirm: "Tem certeza?"
+            } %>
+          </td>
+          <td>
+            [img]
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

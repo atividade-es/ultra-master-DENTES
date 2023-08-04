@@ -1,0 +1,27 @@
+<h1>Novo Atendimento</h1>
+
+<%= form_with model: @atendimento, url: atendimentos_path do |form| %>
+  <div>
+    <%= form.label :dentista_id %>
+    <%= form.collection_select :dentista_id, Dentist.all, :id, :nome, prompt: "Selecione um Dentista"%>
+  </div>
+  <div>
+    <%= form.label :paciente_id %>
+    <%= form.collection_select :paciente_id, Patient.all, :id, :name, prompt: "Selecione um Paciente"%>
+  </div>
+  <div>
+    <%= form.label :data_hora %>
+    <%= form.datetime_local_field :data_hora %>
+  </div>
+  <div>
+    <%= form.label :descricao %>
+    <%= form.number_field :descricao %>
+  </div>
+  <div>
+    <%= form.submit "Criar consulta"%>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to "Back to atendimentos", atendimentos_path %>
+</div>

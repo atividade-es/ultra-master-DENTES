@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Consultas</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Dentista</th>
+    <th>Paciente</th>
+    <th>Data e Hora</th>
+    <th>Descrição</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @atendimentos.each do |atendimento| %>
+  <tr>
+      <td><%= atendimento.dentista.nome %></td>
+      <td><%= atendimento.paciente.nome %></td>
+      <td><%= atendimento.data_hora %></td>
+      <td><%= atendimento.descricao %></td>
+      <td><%= link_to 'Mostrar', atendimento %></td>
+      <td><%= link_to 'Editar', edit_atendimento_path(atendimento) %></td>
+      <td><%= link_to 'Excluir', atendimento, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New atendimento", new_atendimento_path %>
+<br>
+<%= link_to "Voltar para o Inicio", root_path %>

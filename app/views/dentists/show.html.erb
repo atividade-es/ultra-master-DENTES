@@ -1,0 +1,20 @@
+<h1>Dentista</h1>
+<p><strong>Nome:</strong> <%= @dentist.nome %></p>
+<p><strong>Especialização:</strong> <%= @dentist.especializacao %></p>
+<p><strong>Dias de Atendimento:</strong>
+  <% dias_atendimento = [] %>
+  <% dias_atendimento << "Segunda-feira" if @dentist.disponivel_segunda == 1 %>
+  <% dias_atendimento << "Terça-feira" if @dentist.disponivel_terca == 1 %>
+  <% dias_atendimento << "Quarta-feira" if @dentist.disponivel_quarta == 1 %>
+  <% dias_atendimento << "Quinta-feira" if @dentist.disponivel_quinta == 1 %>
+  <% dias_atendimento << "Sexta-feira" if @dentist.disponivel_sexta == 1 %>
+  <% dias_atendimento << "Sábado" if @dentist.disponivel_sabado == 1 %>
+  <% dias_atendimento << "Domingo" if @dentist.disponivel_domingo == 1 %>
+  <%= dias_atendimento.join(', ') %>
+</p>
+
+<%= link_to 'Editar', edit_dentist_path(@dentist) %> |
+<%= link_to 'Voltar', dentists_path %> |
+<%= link_to "Excluir Dentista", dentist_path(@dentist), data: {
+  turbo_method: :delete
+} %>

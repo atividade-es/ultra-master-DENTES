@@ -26,5 +26,15 @@ production:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   url: <%= ENV["DATABASE_URL"] %>
   database: railwayapp_production
-  username: railwayapp
+  username: ultra_master_dentes_postgresql_user
   password: <%= ENV["RAILWAYAPP_DATABASE_PASSWORD"] %>
+
+actions:
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  database: <%= ENV.fetch('PG_DATABASE', 'postgres') %>
+  host:     <%= ENV.fetch('PG_HOST',  'localhost') %>
+  username: <%= ENV.fetch('PG_USER', 'postgres') %>
+  password: <%= ENV.fetch('PG_PASSWORD', 'password') %>
+  port:     <%= ENV.fetch('PG_PORT', 5432) %>

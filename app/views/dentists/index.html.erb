@@ -1,0 +1,9 @@
+<h1>Dentistas</h1>
+
+<% @dentists.each do |dentist| %>
+  <%= link_to dentist.nome, dentist %>
+<% end %>
+<p>
+  <%= link_to "Cadastrar dentista", new_dentist_path %>
+<p>
+  <%= link_to 'Voltar', dentists_path %>
