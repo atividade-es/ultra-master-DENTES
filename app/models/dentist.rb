@@ -8,4 +8,6 @@ class Dentist < ApplicationRecord
   validates :disponivel_sexta, inclusion: { in: [0, 1] }, presence: true
   validates :disponivel_sabado, inclusion: { in: [0, 1] }, presence: true
   validates :disponivel_domingo, inclusion: { in: [0, 1] }, presence: true
+  
+  has_many :atendimentos
 end

@@ -1,0 +1,25 @@
+<h1>Editar Consulta</h1>
+
+<%= from_with model: @atendimento, url: atendimento_path(@atendimento), method: :path do |form| %>
+<div>
+  <%= form.label :dentista_id %>
+  <%= form.collection_select :dentista_id, Dentist.all, :id, :nome %>
+</div>
+<div>
+  <%= form.label :paciente_id %>
+  <%= form.collection_select :paciente_id, Patient.all, :id, :nome %>
+</div>
+<div>
+  <%= form.label :data_hora %>
+  <%= form.datetime_local_field :data_hora %>
+  </div>
+<div>
+  <%= form.label :descricao %>
+  <%= form.text_area :descricao %>
+</div>
+<div>
+  <%= form.submit "Atualizar Consulta" %>
+</div>
+<% end %>
+
+<%= link_to "Voltar", atendimento_path(@atendimento) %>
