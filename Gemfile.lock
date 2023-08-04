@@ -289,12 +289,8 @@ DEPENDENCIES
   activerecord-postgresql-adapter
   bootsnap
   capybara
-<<<<<<< HEAD
-  cucumber-rails (= 2.6.1)
-=======
   cucumber-rails
   database_cleaner
->>>>>>> 4334833c89f931e79e2d39e4457733389574efbc
   debug
   importmap-rails
   jbuilder

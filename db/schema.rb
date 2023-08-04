@@ -21,18 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_031037) do
     t.index ["dentista_id"], name: "index_atendimentos_on_dentista_id"
     t.index ["paciente_id"], name: "index_atendimentos_on_paciente_id"
   end
-
-  create_table "consulta", force: :cascade do |t|
-    t.integer "dentista_id", null: false
-    t.integer "paciente_id", null: false
-    t.datetime "data_hora"
-    t.text "observacao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["dentista_id"], name: "index_consulta_on_dentista_id"
-    t.index ["paciente_id"], name: "index_consulta_on_paciente_id"
-  end
-
+  
   create_table "dentists", force: :cascade do |t|
     t.string "nome"
     t.string "especializacao"
@@ -57,6 +46,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_031037) do
 
   add_foreign_key "atendimentos", "dentista", column: "dentista_id"
   add_foreign_key "atendimentos", "pacientes"
-  add_foreign_key "consulta", "dentista", column: "dentista_id"
-  add_foreign_key "consulta", "pacientes"
 end
