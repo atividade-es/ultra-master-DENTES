@@ -4,7 +4,7 @@ Feature: Manage dentists
   So that I can manage the registered dentists
 
   Scenario: Add a dentist
-    Given I open the 'Cadastar dentista' dentist page
+    Given I open the 'Cadastrar Dentista' dentist page
     When I fill all dentist fields with valid information
     And I click on the 'Create Dentist' button
     Then I see that this dentist was saved
