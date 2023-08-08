@@ -5,37 +5,41 @@ Feature: Manage patient
 
   Scenario: Open the create page
     Given I am in 'Welcome' page
-    When I click on the 'Cadastrar paciente' link
-    Then I see a view with title 'Cadastro do Paciente'
+    When I click on the patient creation page link
+    Then I see the text 'Cadastro do Paciente'
 
   Scenario: Add a patient is successful
-    Given I am in 'Cadastro do Paciente' page to create
+    Given I visit the patient creation page
     When I fill 'patient_name' with 'Nome do Paciente'
-    When I fill 'patient_cpf' with 12369874510
-    When I fill 'patient_email' with 'patient@email.com'
-    And I click on the 'Create Patient' button
-    Then I see message 'Dados do Paciente'
+    And I fill 'patient_cpf' with 12369874510
+    And I fill 'patient_email' with 'patient@email.com'
+    And I click on the patient create button
+    Then I see the text 'Dados do Paciente'
 
   Scenario: Add a patient with missing fields failed
-    Given I am in 'Cadastro do Paciente' page to create
-    And I click on the 'Create Patient' button
-    Then I see message 'Name can\'t be blank'
-    Then I see message 'Email can\'t be blank'
-    Then I see message 'Cpf can\'t be blank'
+    Given I visit the patient creation page
+    When I click on the patient create button
+    Then I see the text 'Name can\'t be blank'
+    And I see the text 'Email can\'t be blank'
+    And I see the text 'Cpf can\'t be blank'
 
   Scenario: Add a patient with invalid email failed
-    Given I am in 'Cadastro do Paciente' page to create
+    Given I visit the patient creation page
     When I fill 'patient_name' with 'Nome do Paciente'
-    When I fill 'patient_cpf' with 12369874510
-    When I fill 'patient_email' with 'email'
-    And I click on the 'Create Patient' button
-    Then I see message 'Email is invalid'
+    And I fill 'patient_cpf' with 12369874510
+    And I fill 'patient_email' with 'email'
+    And I click on the patient create button
+    Then I see the text 'Email is invalid'
 
   Scenario: Add a patient with cpf already existent failed
-    Given The patient with cpf 98765432112 exists
-    And I am in 'Cadastro do Paciente' page to create
+    Given I visit the patient creation page
     When I fill 'patient_name' with 'Nome do Paciente'
-    When I fill 'patient_cpf' with 98765432112
-    When I fill 'patient_email' with 'email'
-    And I click on the 'Create Patient' button
-    Then I see message 'Cpf has already been taken'
+    And I fill 'patient_cpf' with 98765432112
+    And I fill 'patient_email' with 'patient@email.com'
+    And I click on the patient create button
+    When I visit the patient creation page
+    And I fill 'patient_name' with 'Nome do Paciente'
+    And I fill 'patient_cpf' with 98765432112
+    And I fill 'patient_email' with 'patient@email.com'
+    And I click on the patient create button
+    Then I see the text 'Cpf has already been taken'
