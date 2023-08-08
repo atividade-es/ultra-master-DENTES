@@ -1,4 +1,4 @@
-Given('I open the dentist registration page') do
+Given('I visit the dentist registration page') do
   visit 'dentists/new'
   expect(page).to have_content("Cadastrar Dentista")
 end
@@ -25,7 +25,7 @@ Then('I see that this dentist was saved') do
   assert_text('Dr. Drake Ramoray')
 end
 
-And('I open the dentist page') do
+And('I visit the dentist page') do
   visit 'dentists/1'
 end
 
@@ -45,7 +45,7 @@ Given('there is a dentist with the name {string} and specialization {string}') d
   Dentist.create(nome: name, especializacao: specialization)
 end
 
-When('I open dentist index page') do
+When('I visit dentist index page') do
   visit 'dentists/'
 end
 
