@@ -8,7 +8,7 @@ Feature: Manage dentists
     When I fill 'dentist_nome' with 'Dr. Drake Ramoray'
     And I select "Clínico Geral" from "dentist_especializacao"
     And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
-    And I click on the create button
+    And I click on the dentist create button
     Then I see that this dentist was saved
 
   Scenario: Remove a dentist
@@ -16,7 +16,7 @@ Feature: Manage dentists
     When I fill 'dentist_nome' with 'Dr. Drake Ramoray'
     And I select "Clínico Geral" from "dentist_especializacao"
     And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
-    And I click on the create button
+    And I click on the dentist create button
     And I open the dentist page
     When I click on the delete link on the dentist page
     Then I see that this dentist was deleted
@@ -26,7 +26,7 @@ Feature: Manage dentists
     When I fill 'dentist_nome' with 'Dr. Drake Ramoray'
     And I select "Clínico Geral" from "dentist_especializacao"
     And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
-    And I click on the create button
+    And I click on the dentist create button
     And I open dentist index page
     When I click on the name of the desired dentist
     Then I see the name of "Dr. Drake Ramoray" displayed
@@ -36,7 +36,7 @@ Feature: Manage dentists
     When I fill 'dentist_nome' with 'Dr. Jane Smith'
     And I select "Odontopediatria" from "dentist_especializacao"
     And I check 'dentist_disponivel_segunda','dentist_disponivel_terca' and 'dentist_disponivel_sexta'
-    And I click on the create button
+    And I click on the dentist create button
     And I open the dentist page
     When I click on the edit link of the desired dentist
     And I update the dentist's name to "Dr. Jane Johnson"

@@ -17,7 +17,7 @@ And('I check {string},{string} and {string}') do |check1, check2, check3|
   check check3
 end
 
-And('I click on the create button') do
+And('I click on the dentist create button') do
   click_button "Create Dentist"
 end
 
