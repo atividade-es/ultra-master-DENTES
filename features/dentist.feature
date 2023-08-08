@@ -4,26 +4,41 @@ Feature: Manage dentists
   So that I can manage the registered dentists
 
   Scenario: Add a dentist
-    Given I open the 'Cadastrar Dentista' dentist page
-    When I fill all dentist fields with valid information
-    And I click on the 'Create Dentist' button
+    Given I open the dentist registration page
+    When I fill 'dentist_nome' with 'Dr. Drake Ramoray'
+    And I select "Clínico Geral" from "dentist_especializacao"
+    And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
+    And I click on the create button
     Then I see that this dentist was saved
 
   Scenario: Remove a dentist
-    Given I open the dentist page
-    When I click on the 'Excluir Dentista' link of the desired dentist
+    Given I open the dentist registration page
+    When I fill 'dentist_nome' with 'Dr. Drake Ramoray'
+    And I select "Clínico Geral" from "dentist_especializacao"
+    And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
+    And I click on the create button
+    And I open the dentist page
+    When I click on the delete link on the dentist page
     Then I see that this dentist was deleted
 
   Scenario: View a dentist's details
-    Given there is a dentist with the name "Dr. Drake Ramoray" and specialization "Clínico Geral"
+    Given I open the dentist registration page
+    When I fill 'dentist_nome' with 'Dr. Drake Ramoray'
+    And I select "Clínico Geral" from "dentist_especializacao"
+    And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
+    And I click on the create button
     And I open dentist index page
     When I click on the name of the desired dentist
-    Then I see the details of "Dr. Drake Ramoray" displayed
+    Then I see the name of "Dr. Drake Ramoray" displayed
 
   Scenario: Edit a dentist's information
-    Given there is a dentist with the name "Dr. Jane Smith" and specialization "Odontopediatria"
+    Given I open the dentist registration page
+    When I fill 'dentist_nome' with 'Dr. Jane Smith'
+    And I select "Odontopediatria" from "dentist_especializacao"
+    And I check 'dentist_disponivel_segunda','dentist_disponivel_terca' and 'dentist_disponivel_sexta'
+    And I click on the create button
     And I open the dentist page
-    When I click on the 'Editar' link of the desired dentist
+    When I click on the edit link of the desired dentist
     And I update the dentist's name to "Dr. Jane Johnson"
-    And I click on the 'Update Dentist' button2
+    And I click on the update button
     Then I see that the dentist information was updated
