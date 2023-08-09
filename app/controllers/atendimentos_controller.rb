@@ -23,7 +23,7 @@ class AtendimentosController < ApplicationController
 
   # POST /atendimentos or /atendimentos.json
   def create
-    data = params[:atendimento][:data_hora]
+    data = params[:atendimento][:data]
     hora = params[:atendimento][:hora]
     data_hora = "#{data} #{hora}"
 
@@ -57,6 +57,26 @@ class AtendimentosController < ApplicationController
     @atendimento.destroy
     redirect_to atendimentos_path, notice: "Consulta excluida com sucesso."
   end
+
+  def search
+    @consultas = Atendimento.all
+
+    if params[:dentist_id].present?
+      dentist = Dentist.find(params[:dentist_id])
+      @consultas = @consultas.where(dentist: dentist)
+    end
+
+    if params[:patient_id].present?
+      patient = Patient.find(params[:patient_id])
+      @consultas = @consultas.where(patient: patient)
+    end
+
+    if params[:data_hora].present?
+      datetime = DateTime.parse(params[:data_hora])
+      @consultas = @consultas.where(data_hora: datetime)
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

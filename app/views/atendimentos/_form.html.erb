@@ -1,4 +1,17 @@
 <%= form_with model: @atendimento do |form| %>
+
+  <% if @atendimento.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@atendimento.errors.count, "error") %> causado no cadastro:</h3>
+
+      <ul>
+        <% @atendimento.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
     <%= form.label :dentist_id %>
     <%= form.collection_select :dentist_id, Dentist.all, :id, :nome, prompt: "Selecione um Dentista"%>
@@ -9,11 +22,11 @@
   </div>
   <div>
     <%= form.label :data %>
-    <%= form.date_field :data_hora %>
+    <%= form.date_field :data %>
   </div>
   <div>
     <%= form.label :hora %>
-    <%= form.time_field(:data_hora,
+    <%= form.time_field(:hora,
                         :min=>"06:00",
                         :max=>"19:00",
                         :step=>'60',

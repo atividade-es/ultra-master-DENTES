@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buscar Consulta</title>
+</head>
+<body>
+<h1>Buscar Consula</h1>
+
+<%= form_with url: search_atendimento_path, method: :get do |form| %>
+  <div>
+    <%= form.label :dentist_id, "Dentista:" %>
+    <%= form.collection_select :dentist_id, Dentist.all, :id, :nome, prompt: "Selecione um Dentista" %>
+  </div>
+
+  <div>
+    <%= form.label :patient_id, "Paciente:" %>
+    <%= form.collection_select :patient_id, Patient.all, :id, :name, prompt: "Selecione um Paciente" %>
+  </div>
+
+  <div>
+    <%= form.label :data_hora, "Data e Hora:" %>
+    <%= form.datetime_local_field :data_hora %>
+  </div>
+
+  <div>
+    <%= form.submit "Buscar" %>
+  </div>
+<% end %>
+
+<% if @consultas.present? %>
+  <h2>Resultados da busca:</h2>
+  <ul>
+    <% @consultas.each do |consulta| %>
+      <li>
+        <p><strong>Dentista:</strong> <%= consulta.dentist.nome %></p>
+        <p><strong>Paciente:</strong> <%= consulta.patient.name %></p>
+        <p><strong>Data e Hora:</strong> <%= consulta.data_hora %></p>
+        <p><strong>Observação:</strong> <%= consulta.observacao %></p>
+        <hr>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhuma consulta encontrada.</p>
+<% end %>
+<div>
+  <%= link_to "Back to atendimentos", atendimentos_path %>
+</div>
+</body>
+</html>
