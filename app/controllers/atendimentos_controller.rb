@@ -23,16 +23,18 @@ class AtendimentosController < ApplicationController
 
   # POST /atendimentos or /atendimentos.json
   def create
-    @atendimento = Atendimento.new(atendimento_params)
+    data = params[:atendimento][:data_hora]
+    hora = params[:atendimento][:hora]
+    data_hora = "#{data} #{hora}"
 
-    respond_to do |format|
-      if @atendimento.save
-        format.html { redirect_to atendimento_url(@atendimento), notice: "Atendimento was successfully created." }
-        format.json { render :show, status: :created, location: @atendimento }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @atendimento.errors, status: :unprocessable_entity }
-      end
+    datetime = DateTime.parse(data_hora)
+
+    @atendimento = Atendimento.new(atendimento_params.merge(data_hora: datetime))
+
+    if @atendimento.save
+      redirect_to @atendimento, notice: 'Atendimento foi criado com sucesso.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -63,7 +65,7 @@ class AtendimentosController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def atendimento_params
-      params.require(:atendimento).permit(:dentista_id, :paciente_id, :data_hora, :observacao)
-    end
+  def atendimento_params
+    params.require(:atendimento).permit(:dentist_id, :patient_id, :data_hora, :observacao)
+  end
 end
