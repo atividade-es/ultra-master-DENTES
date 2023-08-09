@@ -1,9 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Detalhes da Consulta</h1>
-<p><strong>Dentista:</strong> <%= @atendimento.dentista.nome %></p>
-<p><strong>Paciente:</strong> <%= @atendimento.paciente.nome %></p>
+<p><strong>Dentista:</strong> <%= @atendimento.dentist.nome %></p>
+<p><strong>Paciente:</strong> <%= @atendimento.patient.name %></p>
 <p><strong>Data e Hora:</strong> <%= @atendimento.data_hora %></p>
-<p><strong>Descrição:</strong> <%= @atendimento.descricao %></p>
+<p><strong>Descrição:</strong> <%= @atendimento.observacao %></p>
 
 <%= link_to 'Voltar', atendimentos_path %>

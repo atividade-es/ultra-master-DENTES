@@ -1,25 +1,6 @@
 <h1>Editar Consulta</h1>
 
-<%= from_with model: @atendimento, url: atendimento_path(@atendimento), method: :path do |form| %>
-<div>
-  <%= form.label :dentista_id %>
-  <%= form.collection_select :dentista_id, Dentist.all, :id, :nome %>
-</div>
-<div>
-  <%= form.label :paciente_id %>
-  <%= form.collection_select :paciente_id, Patient.all, :id, :nome %>
-</div>
-<div>
-  <%= form.label :data_hora %>
-  <%= form.datetime_local_field :data_hora %>
-  </div>
-<div>
-  <%= form.label :descricao %>
-  <%= form.text_area :descricao %>
-</div>
-<div>
-  <%= form.submit "Atualizar Consulta" %>
-</div>
-<% end %>
+<%= render 'form', atendimento: @atendimento %>
 
+<%= button_to "Excluir Consulta", atendimento_path(@atendimento), method: :delete, data: { confirm: 'Você tem certeza que deseja excluir esta consulta?' } %>
 <%= link_to "Voltar", atendimento_path(@atendimento) %>

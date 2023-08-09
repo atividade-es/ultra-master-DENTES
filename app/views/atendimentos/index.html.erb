@@ -14,10 +14,10 @@
   <tbody>
   <% @atendimentos.each do |atendimento| %>
   <tr>
-      <td><%= atendimento.dentista.nome %></td>
-      <td><%= atendimento.paciente.nome %></td>
+      <td><%= atendimento.dentist.nome %></td>
+      <td><%= atendimento.patient.name %></td>
       <td><%= atendimento.data_hora %></td>
-      <td><%= atendimento.descricao %></td>
+      <td><%= atendimento.observacao %></td>
       <td><%= link_to 'Mostrar', atendimento %></td>
       <td><%= link_to 'Editar', edit_atendimento_path(atendimento) %></td>
       <td><%= link_to 'Excluir', atendimento, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
@@ -25,7 +25,7 @@
   <% end %>
   </tbody>
 </table>
-
-<%= link_to "New atendimento", new_atendimento_path %>
+<br>
+<%= link_to "Nova consulta", new_atendimento_path %>
 <br>
 <%= link_to "Voltar para o Inicio", root_path %>
