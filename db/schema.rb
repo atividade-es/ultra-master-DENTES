@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_031037) do
     t.string "especializacao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "disponivel_segunda", default: 1
+    t.integer "disponivel_segunda", default: 0
     t.integer "disponivel_terca", default: 0
     t.integer "disponivel_quarta", default: 0
     t.integer "disponivel_quinta", default: 0
