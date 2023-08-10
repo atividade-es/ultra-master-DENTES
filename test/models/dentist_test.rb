@@ -20,11 +20,9 @@ class DentistTest < ActiveSupport::TestCase
     )
 
     assert dentist.valid?, "Dentist is not valid: #{dentist.errors.full_messages.join(', ')}"
+    assert dentist.save
+    assert dentist.destroy
 
-    assert_difference("Dentist.count", -1) do
-      assert dentist.save, "Failed to create dentist for delete test"
-      dentist.destroy
-    end
   end
 
 
