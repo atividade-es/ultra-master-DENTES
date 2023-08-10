@@ -1,6 +1,6 @@
-<h1>Editar Consulta</h1>
+<h1>Editar Atendimento</h1>
 
 <%= render 'form', atendimento: @atendimento %>
 
-<%= button_to "Excluir Consulta", atendimento_path(@atendimento), method: :delete, data: { confirm: 'Você tem certeza que deseja excluir esta consulta?' } %>
+<%= button_to "Excluir Atendimento", atendimento_path(@atendimento), method: :delete, data: { confirm: 'Você tem certeza que deseja excluir este atendimento?' } %>
 <%= link_to "Voltar", atendimento_path(@atendimento) %>
