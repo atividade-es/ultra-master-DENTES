@@ -55,7 +55,7 @@ class AtendimentosController < ApplicationController
   def destroy
     @atendimento = Atendimento.find(params[:id])
     @atendimento.destroy
-    redirect_to atendimentos_path, notice: "Consulta excluida com sucesso."
+    redirect_to atendimentos_path, notice: "Atendimento excluido com sucesso."
   end
 
   private
