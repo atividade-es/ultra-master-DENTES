@@ -4,9 +4,9 @@ Feature: Manage patient
   So that I can manage the registered patients
 
   Scenario: Open the create page
-    Given I am in Welcome page
+    Given I am in 'Welcome' page
     When I click on the patient creation page link
-    Then I see the text Cadastro do Paciente
+    Then I see the text 'Cadastro do Paciente'
 
   Scenario: Add a patient is successful
     Given I visit the patient creation page
