@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Consultas</h1>
+<h1>Atendimentos</h1>
 <table>
   <thead>
   <tr>
@@ -20,12 +20,12 @@
       <td><%= atendimento.observacao %></td>
       <td><%= link_to 'Mostrar', atendimento %></td>
       <td><%= link_to 'Editar', edit_atendimento_path(atendimento) %></td>
-      <td><%= link_to 'Excluir', atendimento, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
+      <td><%= link_to 'Desmarcar', atendimento, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to "Nova consulta", new_atendimento_path %>
+<%= link_to "Novo atendimento", new_atendimento_path %>
 <br>
 <%= link_to "Voltar para o Inicio", root_path %>
