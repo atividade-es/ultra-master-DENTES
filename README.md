@@ -12,7 +12,7 @@ Render:\
 https://ultra-master-dentes-web.onrender.com/
 
 📄 Descrição:\
-Projeto para implementação de um SaaS em Ruby e Rails com foco no servidor para a disciplina de Engenharia de Software do curso de Ciência da Computação da UFAPE. ministrado pelo Professor Dr. [Rodrigo Andrade](https://github.com/rcaa). O projeto consiste em um sistema de gerenciamento de consultas para um consultório odontológico. O sistema é destinado a atender as necessidades de três tipos de usuários: administrador, recepcionista e paciente. Cada tipo de usuário possui diferentes permissões e funcionalidades dentro do sistema.
+Projeto para implementação de um SaaS em Ruby e Rails com foco no servidor para a disciplina de Engenharia de Software do curso de Ciência da Computação da UFAPE. ministrado pelo Professor Dr. [Rodrigo Andrade](https://github.com/rcaa). O projeto consiste em um sistema de gerenciamento de atendimentos para um consultório odontológico. O sistema é destinado a atender as necessidades de três tipos de usuários: administrador, recepcionista e paciente. Cada tipo de usuário possui diferentes permissões e funcionalidades dentro do sistema.
 
 ## :round_pushpin: Objetivos
 
@@ -25,15 +25,15 @@ Projeto para implementação de um SaaS em Ruby e Rails com foco no servidor par
 ## Cadastro de Dentistas:
 
 -   O administrador pode cadastrar dentistas no sistema.
--   As informações dos dentistas cadastrados serão visíveis para os pacientes ao marcar uma consulta, permitindo que eles selecionem um dentista disponível.
+-   As informações dos dentistas cadastrados serão visíveis para os pacientes ao marcar uma atendimento, permitindo que eles selecionem um dentista disponível.
 
-## Marcação de Consultas:
+## Marcação de Atendimentos:
 
--   Os pacientes podem marcar consultas em horários disponíveis, que não tenham sido ocupados por outros pacientes.
--   Os recepcionistas podem alterar os horários dos dentistas, se necessário, e podem marcar ou desmarcar consultas para os pacientes.
+-   Os pacientes podem marcar atendimentos em horários disponíveis, que não tenham sido ocupados por outros pacientes.
+-   Os recepcionistas podem alterar os horários dos dentistas, se necessário, e podem marcar ou desmarcar atendimentos para os pacientes.
 -   Os recepcionistas também podem confirmar a presença do paciente no consultório, registrando informações como horário, nome do dentista, paciente, entre outros.
 
-O sistema visa facilitar o processo de agendamento e gerenciamento de consultas, garantindo que cada tipo de usuário tenha as permissões e funcionalidades adequadas de acordo com sua função no consultório médico.
+O sistema visa facilitar o processo de agendamento e gerenciamento de atendimentos, garantindo que cada tipo de usuário tenha as permissões e funcionalidades adequadas de acordo com sua função no consultório médico.
 
 ## :construction: Status do Projeto
 Em fase inicial de desenvolvimento.
