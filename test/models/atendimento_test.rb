@@ -11,6 +11,7 @@ class AtendimentoTest < ActiveSupport::TestCase
     dentist = Dentist.new(
       nome: 'Nome do Dentista',
       especializacao: 'Ortodontia',
+      cro: '98765/RJ',
       disponivel_segunda: 1,
       disponivel_terca: 1,
       disponivel_quarta: 1,

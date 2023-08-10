@@ -1,6 +1,7 @@
 <h1>Dentista</h1>
 <p><strong>Nome:</strong> <%= @dentist.nome %></p>
 <p><strong>Especialização:</strong> <%= @dentist.especializacao %></p>
+<p><strong>CRO:</strong> <%= @dentist.cro %></p>
 <p><strong>Dias de Atendimento:</strong>
   <% dias_atendimento = [] %>
   <% dias_atendimento << "Segunda-feira" if @dentist.disponivel_segunda == 1 %>

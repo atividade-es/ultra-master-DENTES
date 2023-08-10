@@ -5,6 +5,9 @@
   <%= form.label :especializacao %>
   <%= form.select :especializacao, ['Ortodontia', 'Endodontia', 'Implantodontia', 'Clínico Geral', 'Periodontia', 'Odontopediatria', 'Cirurgia Bucomaxilofacial'] %>
 
+  <%= form.label :cro, 'CRO' %>
+  <%= form.text_field :cro %>
+
   <h3>Dias de Atendimento:</h3>
   <%= form.label :disponivel_segunda, 'Segunda-feira' %>
   <%= form.check_box :disponivel_segunda %>

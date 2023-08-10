@@ -1,12 +1,13 @@
 Feature: Manage dentists
-  As a system user
-  I want to add and remove a dentist
-  So that I can manage the registered dentists
+  As a Usuario do sistema
+  I want to registrar, editar, remover e exibir um dentista
+  So that eu gerencie os dentistas do consultorio
 
   Scenario: Add a dentist
     Given I visit the dentist registration page
     When I fill 'dentist_nome' with 'Dr. Drake Ramoray'
     And I select "Clínico Geral" from "dentist_especializacao"
+    And I fill 'dentist_cro' with '12345/RJ'
     And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
     And I click on the dentist create button
     Then I see that this dentist was saved
@@ -15,6 +16,7 @@ Feature: Manage dentists
     Given I visit the dentist registration page
     When I fill 'dentist_nome' with 'Dr. Drake Ramoray'
     And I select "Clínico Geral" from "dentist_especializacao"
+    And I fill 'dentist_cro' with '12345/RJ'
     And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
     And I click on the dentist create button
     And I visit the dentist page
@@ -25,6 +27,7 @@ Feature: Manage dentists
     Given I visit the dentist registration page
     When I fill 'dentist_nome' with 'Dr. Drake Ramoray'
     And I select "Clínico Geral" from "dentist_especializacao"
+    And I fill 'dentist_cro' with '12345/RJ'
     And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
     And I click on the dentist create button
     And I visit dentist index page
@@ -35,6 +38,7 @@ Feature: Manage dentists
     Given I visit the dentist registration page
     When I fill 'dentist_nome' with 'Dr. Jane Smith'
     And I select "Odontopediatria" from "dentist_especializacao"
+    And I fill 'dentist_cro' with '54321/PE'
     And I check 'dentist_disponivel_segunda','dentist_disponivel_terca' and 'dentist_disponivel_sexta'
     And I click on the dentist create button
     And I visit the dentist page

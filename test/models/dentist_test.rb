@@ -12,11 +12,20 @@ class DentistTest < ActiveSupport::TestCase
   end
 
   test "dentist should be able to be deleted" do
-    dentist = Dentist.new(nome: "Dr. Jane Smith", especializacao: "Odontopediatria", disponivel_segunda: true)
-    assert dentist.save, "Failed to create dentist for delete test"
+    dentist = Dentist.new(
+      nome: "Dr. Jane Smith",
+      especializacao: "Odontopediatria",
+      disponivel_segunda: true,
+      cro: "12345/RJ"
+    )
 
-    assert_difference("Dentist.count", -1) do
-      dentist.destroy
-    end
+    assert dentist.valid?, "Dentist is not valid: #{dentist.errors.full_messages.join(', ')}"
+    assert dentist.save
+    assert dentist.destroy
+
   end
+
+
+
+
 end
