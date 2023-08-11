@@ -1,7 +1,7 @@
-<table border="1" bgcolor=#daa520 align="center">
+<table border="1" bgcolor="#daa520" align="center">
   <tr>
     <td>
-      <table border="2" align="center" bgcolor=#5f9ea0>
+      <table border="2" align="center" bgcolor="#5f9ea0">
         <tr>
           <td colspan="2">
             <div align="center">
@@ -33,6 +33,40 @@
             <%= @patient.cpf %>
           </td>
         </tr>
+        <!-- Adicione os novos campos aqui -->
+        <tr>
+          <td>
+            Contato:
+          </td>
+          <td>
+            <%= @patient.contato %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Data de Nascimento:
+          </td>
+          <td>
+            <%= @patient.data_nascimento %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Gênero:
+          </td>
+          <td>
+            <%= @patient.genero %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Endereço:
+          </td>
+          <td>
+            <%= @patient.endereco %>
+          </td>
+        </tr>
+        <!-- Fim dos novos campos -->
       </table>
       <br>
     </td>
