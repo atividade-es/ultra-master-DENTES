@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_10_033248) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_11_025051) do
   create_table "atendimentos", force: :cascade do |t|
     t.integer "dentist_id", null: false
     t.integer "patient_id", null: false
@@ -35,6 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_033248) do
     t.integer "disponivel_sabado", default: 0
     t.integer "disponivel_domingo", default: 0
     t.string "cro"
+    t.string "contato"
+    t.time "horario_chegada"
+    t.time "horario_saida"
+    t.string "email"
   end
 
   create_table "patients", force: :cascade do |t|

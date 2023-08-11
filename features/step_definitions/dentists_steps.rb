@@ -69,3 +69,4 @@ end
 Then('I see that the dentist information was updated') do
   assert_text('Dr. Jane Johnson')
 end
+
