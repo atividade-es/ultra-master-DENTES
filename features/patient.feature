@@ -35,3 +35,21 @@ Feature: Manage patient
     And I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
     And I click on the patient create button
     Then I see the text 'Cpf has already been taken'
+
+  Scenario: Remove a patient
+    Given I visit the patient creation page
+    When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
+    And I click on the patient create button
+    And I visit the patient page
+    And I click on the delete link on the patient page
+    Then I do not see 'Nome do Paciente' on page
+
+  Scenario: Edit a patient name
+    Given I visit the patient creation page
+    When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
+    And I click on the patient create button
+    And I visit the patient page
+    And I click on the edit link of the patient
+    And I update the patient's name to "Sr. Armstrong"
+    And I click on the patient update button
+    Then I see the text 'Sr. Armstrong'

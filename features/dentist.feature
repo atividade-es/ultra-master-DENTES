@@ -17,7 +17,7 @@ Feature: Manage dentists
     And I click on the dentist create button
     And I visit the dentist page
     And I click on the delete link on the dentist page
-    Then I see that this dentist was deleted
+    Then I do not see 'Dr. Drake Ramoray' on page
 
   Scenario: View a dentist's details
     Given I visit the dentist registration page
@@ -36,5 +36,5 @@ Feature: Manage dentists
     And I visit the dentist page
     And I click on the edit link of the desired dentist
     And I update the dentist's name to "Dr. Jane Johnson"
-    And I click on the update button
+    And I click on the dentist update button
     Then I see the name of "Dr. Jane Johnson" displayed
