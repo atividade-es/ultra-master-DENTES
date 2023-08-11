@@ -62,10 +62,16 @@ When('I update the dentist\'s name to {string}') do |new_name|
   fill_in 'dentist_nome', with: new_name
 end
 
-When('I click on the update button') do
+When('I click on the dentist update button') do
   click_on "Update Dentist"
 end
 
 Then('I see that the dentist information was updated') do
   assert_text('Dr. Jane Johnson')
+end
+
+When('I fill dentist name with {string}, especializacao with {string}, cro with {string}') do |name, especializacao, cro|
+  fill_in 'dentist_nome', with: name
+  select especializacao, :from => 'dentist_especializacao'
+  fill_in 'dentist_cro', with: cro
 end
