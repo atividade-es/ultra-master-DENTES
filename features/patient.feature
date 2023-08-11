@@ -10,9 +10,7 @@ Feature: Manage patient
 
   Scenario: Add a patient is successful
     Given I visit the patient creation page
-    When I fill 'patient_name' with 'Nome do Paciente'
-    And I fill 'patient_cpf' with 12369874510
-    And I fill 'patient_email' with 'patient@email.com'
+    When I fill patient name with 'Nome do Paciente', cpf with '12369874510', email with 'patient@email.com'
     And I click on the patient create button
     Then I see the text 'Dados do Paciente'
 
@@ -25,21 +23,15 @@ Feature: Manage patient
 
   Scenario: Add a patient with invalid email failed
     Given I visit the patient creation page
-    When I fill 'patient_name' with 'Nome do Paciente'
-    And I fill 'patient_cpf' with 12369874510
-    And I fill 'patient_email' with 'email'
+    When I fill patient name with 'Nome do Paciente', cpf with '12369874510', email with 'email'
     And I click on the patient create button
     Then I see the text 'Email is invalid'
 
   Scenario: Add a patient with cpf already existent failed
     Given I visit the patient creation page
-    When I fill 'patient_name' with 'Nome do Paciente'
-    And I fill 'patient_cpf' with 98765432112
-    And I fill 'patient_email' with 'patient@email.com'
+    When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
     And I click on the patient create button
     When I visit the patient creation page
-    And I fill 'patient_name' with 'Nome do Paciente'
-    And I fill 'patient_cpf' with 98765432112
-    And I fill 'patient_email' with 'patient@email.com'
+    And I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
     And I click on the patient create button
     Then I see the text 'Cpf has already been taken'
