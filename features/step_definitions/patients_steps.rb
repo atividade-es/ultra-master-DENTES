@@ -43,3 +43,7 @@ end
 When('I click on the patient update button') do
   click_on "Update Patient"
 end
+
+And('I click on the {string} link') do |string|
+  click_on string
+end

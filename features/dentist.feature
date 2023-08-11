@@ -8,7 +8,7 @@ Feature: Manage dentists
     When I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', cro with '12345/RJ'
     And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
     And I click on the dentist create button
-    Then I see that this dentist was saved
+    Then I see the text 'Dr. Drake Ramoray'
 
   Scenario: Remove a dentist
     Given I visit the dentist registration page

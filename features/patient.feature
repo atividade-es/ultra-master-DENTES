@@ -40,7 +40,8 @@ Feature: Manage patient
     Given I visit the patient creation page
     When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
     And I click on the patient create button
-    And I visit the patient page
+    And I visit patient index page
+    And I click on the 'Nome do Paciente' link
     And I click on the delete link on the patient page
     Then I do not see 'Nome do Paciente' on page
 
@@ -48,7 +49,8 @@ Feature: Manage patient
     Given I visit the patient creation page
     When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
     And I click on the patient create button
-    And I visit the patient page
+    And I visit patient index page
+    And I click on the 'Nome do Paciente' link
     And I click on the edit link of the patient
     And I update the patient's name to "Sr. Armstrong"
     And I click on the patient update button
