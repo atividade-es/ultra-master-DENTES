@@ -9,12 +9,12 @@
 <%= form_with model: @patient, url: search_paciente_path, method: :get do |form| %>
   <div>
     <label for="search_name">Nome:</label>
-    <%= form.text_field :name, id: "search_name" %>
+    <%= form.text_field :name, id: "patient_name" %>
   </div>
 
   <div>
     <label for="search_cpf">CPF:</label>
-    <%= form.text_field :cpf, id: "search_cpf" %>
+    <%= form.text_field :cpf, id: "patient_cpf" %>
   </div>
 
   <div>

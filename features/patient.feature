@@ -10,7 +10,7 @@ Feature: Manage patient
 
   Scenario: Add a patient is successful
     Given I visit the patient creation page
-    When I fill patient_name with 'Nome do Paciente', cpf with '12369874510', and patient_email with 'patient@email.com'
+    When I fill patient name with 'Nome do Paciente', cpf with '12369874510', email with 'patient@email.com'
     And I click on the patient create button
     Then I see the text 'Dados do Paciente'
 
@@ -23,15 +23,35 @@ Feature: Manage patient
 
   Scenario: Add a patient with invalid email failed
     Given I visit the patient creation page
-    When I fill patient_name with 'Nome do Paciente', cpf with '12369874510', and patient_email with 'email'
+    When I fill patient name with 'Nome do Paciente', cpf with '12369874510', email with 'email'
     And I click on the patient create button
     Then I see the text 'Email is invalid'
 
   Scenario: Add a patient with cpf already existent failed
     Given I visit the patient creation page
-    When I fill patient_name with 'Nome do Paciente', cpf with '98765432112', and patient_email with 'patient@email.com'
+    When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
     And I click on the patient create button
     When I visit the patient creation page
-    When I fill patient_name with 'Nome do Paciente', cpf with '98765432112', and patient_email with 'patient@email.com'
+    And I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
     And I click on the patient create button
     Then I see the text 'Cpf has already been taken'
+
+  Scenario: Remove a patient
+    Given I visit the patient creation page
+    When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
+    And I click on the patient create button
+    And I visit patient index page
+    And I click on the 'Nome do Paciente' link
+    And I click on the delete link on the patient page
+    Then I do not see 'Nome do Paciente' on page
+
+  Scenario: Edit a patient name
+    Given I visit the patient creation page
+    When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
+    And I click on the patient create button
+    And I visit patient index page
+    And I click on the 'Nome do Paciente' link
+    And I click on the edit link of the patient
+    And I update the patient's name to "Sr. Armstrong"
+    And I click on the patient update button
+    Then I see the text 'Sr. Armstrong'
