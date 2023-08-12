@@ -17,6 +17,10 @@ class DentistsController < ApplicationController
     if @dentist.save
       redirect_to @dentist, notice: 'Dentist was successfully created.'
     else
+      puts 'ERROR ---------------------'
+      puts @dentist.errors.full_messages # Imprime mensagens de erro
+      puts "horario_chegada: #{@dentist.horario_chegada}"
+      puts "horario_saida: #{@dentist.horario_saida}"
       render :new, status: :unprocessable_entity
     end
   end

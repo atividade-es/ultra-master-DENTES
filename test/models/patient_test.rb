@@ -7,7 +7,15 @@ class PatientTest < ActiveSupport::TestCase
   end
 
   test "patient should be created with not null and correct variables" do
-    patient = Patient.new(name: "Larry Silverstein", cpf: "12345678912", email: "luckylarry@example.com")
+    patient = Patient.new(
+      name: "Larry Silverstein",
+      cpf: "12345678912",
+      email: "luckylarry@example.com",
+      contato: '81912345678',
+      data_nascimento: Date.current,
+      genero: 'Feminino',
+      endereco: 'Rua Abcd'
+    )
     assert patient.save
   end
 

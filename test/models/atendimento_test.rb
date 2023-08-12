@@ -6,7 +6,11 @@ class AtendimentoTest < ActiveSupport::TestCase
     patient = Patient.new(
       name: 'Nome do Paciente',
       email: 'paciente@email.com',
-      cpf: 12345678961
+      cpf: 12345678961,
+      contato: '81912345678',
+      data_nascimento: Date.current,
+      genero: 'Feminino',
+      endereco: 'Rua Abcd'
     )
     dentist = Dentist.new(
       nome: 'Nome do Dentista',
@@ -20,11 +24,14 @@ class AtendimentoTest < ActiveSupport::TestCase
       disponivel_sabado: 0,
       disponivel_domingo: 0,
       horario_chegada: Time.utc(2023, 8, 9, 8, 0, 0),
-      horario_saida: Time.utc(2023, 8, 9, 18, 0, 0)
+      horario_saida: Time.utc(2023, 8, 9, 18, 0, 0),
+      contato: '81912345678',
+      email: 'dentista@email.com'
     )
     patient.save
     dentist.save
   end
+
 
   test "atendimento should not be created without a dentist" do
     atendimento = Atendimento.new(
