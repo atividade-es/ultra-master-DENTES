@@ -7,6 +7,12 @@ Feature: Manage dentists
     Given I visit the dentist registration page
     When I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', cro with '12345/RJ'
     And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
+    And I fill 'dentist_horario_chegada_4i' with '08'
+    And I fill 'dentist_horario_chegada_5i' with '00'
+    And I fill 'dentist_horario_saida_4i' with '18'
+    And I fill 'dentist_horario_saida_5i' with '00'
+    And I fill 'dentist_contato' with '1234567890'
+    And I fill 'dentist_email' with 'drake@example.com'
     And I click on the dentist create button
     Then I see the text 'Dr. Drake Ramoray'
 

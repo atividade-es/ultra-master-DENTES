@@ -44,6 +44,6 @@ class DentistsController < ApplicationController
   end
 
   def dentist_params
-    params.require(:dentist).permit(:nome, :especializacao, :disponivel_segunda, :disponivel_terca, :disponivel_quarta, :disponivel_quinta, :disponivel_sexta, :disponivel_sabado, :disponivel_domingo, :cro)
+    params.require(:dentist).permit(:nome, :especializacao, :disponivel_segunda, :disponivel_terca, :disponivel_quarta, :disponivel_quinta, :disponivel_sexta, :disponivel_sabado, :disponivel_domingo, :cro, :horario_chegada, :horario_saida, :contato, :email)
   end
 end

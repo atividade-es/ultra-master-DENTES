@@ -39,6 +39,44 @@
               <%= form.text_field :cpf %>
             </td>
           </tr>
+
+          <!-- Novos campos -->
+          <tr>
+            <td>
+              <%= form.label "Contato" %>
+            </td>
+            <td>
+              <%= form.text_field :contato %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= form.label "Data de Nascimento" %>
+            </td>
+            <td>
+              <%= form.date_field :data_nascimento %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= form.label :genero %>
+            </td>
+            <td>
+              <%= form.select :genero, Patient::GENDER_OPTIONS %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <%= form.label :endereco %>
+            </td>
+            <td>
+              <%= form.text_area :endereco %>
+            </td>
+          </tr>
+          <!-- Fim dos novos campos -->
         </table>
       </td>
     <tr>

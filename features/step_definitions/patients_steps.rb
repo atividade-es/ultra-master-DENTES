@@ -16,6 +16,7 @@ When('I click on the patient creation page link') do
   click_on "Cadastrar paciente"
 end
 
+
 When('I visit patient index page') do
   visit 'patients/'
 end
