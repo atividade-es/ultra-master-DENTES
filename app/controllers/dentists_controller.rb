@@ -17,6 +17,10 @@ class DentistsController < ApplicationController
     if @dentist.save
       redirect_to @dentist, notice: 'Dentist was successfully created.'
     else
+      puts 'ERROR ---------------------'
+      puts @dentist.errors.full_messages # Imprime mensagens de erro
+      puts "horario_chegada: #{@dentist.horario_chegada}"
+      puts "horario_saida: #{@dentist.horario_saida}"
       render :new, status: :unprocessable_entity
     end
   end
@@ -44,6 +48,6 @@ class DentistsController < ApplicationController
   end
 
   def dentist_params
-    params.require(:dentist).permit(:nome, :especializacao, :disponivel_segunda, :disponivel_terca, :disponivel_quarta, :disponivel_quinta, :disponivel_sexta, :disponivel_sabado, :disponivel_domingo, :cro)
+    params.require(:dentist).permit(:nome, :especializacao, :disponivel_segunda, :disponivel_terca, :disponivel_quarta, :disponivel_quinta, :disponivel_sexta, :disponivel_sabado, :disponivel_domingo, :cro, :horario_chegada, :horario_saida, :contato, :email)
   end
 end

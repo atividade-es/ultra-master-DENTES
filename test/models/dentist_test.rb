@@ -16,16 +16,15 @@ class DentistTest < ActiveSupport::TestCase
       nome: "Dr. Jane Smith",
       especializacao: "Odontopediatria",
       disponivel_segunda: true,
-      cro: "12345/RJ"
+      cro: "12345/RJ",
+      contato: "1234567890",
+      email: "drjane@example.com",
+      horario_chegada: Time.utc(2024, 1, 1, 8, 0, 0),
+      horario_saida: Time.utc(2024, 1, 1, 18, 0, 0)
     )
 
     assert dentist.valid?, "Dentist is not valid: #{dentist.errors.full_messages.join(', ')}"
     assert dentist.save
     assert dentist.destroy
-
   end
-
-
-
-
 end

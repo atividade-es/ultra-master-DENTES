@@ -30,5 +30,24 @@
   <%= form.label :disponivel_domingo, 'Domingo' %>
   <%= form.check_box :disponivel_domingo %>
 
+  <h3>Horário de Atendimento</h3>
+  <%= form.label :horario_chegada, 'Horário de Chegada' %>
+  <%= form.time_select :horario_chegada, { minute_step: 15, start_hour: 6, end_hour: 16 }, { class: 'form-control' } %>
+
+  <p>
+
+  <%= form.label :horario_saida, 'Horário de Saída' %>
+  <%= form.time_select :horario_saida, { minute_step: 15, start_hour: 12, end_hour: 22 }, { class: 'form-control' } %>
+
+  <p></p>
+
+  <%= form.label :contato %>
+  <%= form.text_field :contato %>
+
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+
+  <p></p>
+
   <%= form.submit %>
 <% end %>
