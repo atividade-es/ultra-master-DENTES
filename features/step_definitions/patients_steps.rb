@@ -6,10 +6,14 @@ When('I fill {string} with {int}') do |label, content|
   fill_in label, with: content
 end
 
-When('I fill patient name with {string}, cpf with {string}, email with {string}') do |name, cpf, email|
+When('I fill name {string}, cpf {string}, email {string}, phone {string}, birth {string}, gender {string}, address {string}') do |name, cpf, email, phone, birth, gender, address|
   fill_in 'patient_name', with: name
   fill_in 'patient_cpf', with: cpf
   fill_in 'patient_email', with: email
+  fill_in 'patient_contato', with: phone
+  fill_in 'patient_data_nascimento', with: birth
+  select gender, from: 'patient_genero'
+  fill_in 'patient_endereco', with: address
 end
 
 When('I click on the patient creation page link') do

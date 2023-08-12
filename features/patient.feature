@@ -10,7 +10,7 @@ Feature: Manage patient
 
   Scenario: Add a patient is successful
     Given I visit the patient creation page
-    When I fill patient name with 'Nome do Paciente', cpf with '12369874510', email with 'patient@email.com'
+    When I fill name 'Nome do Paciente', cpf '12369874510', email 'patient@email.com', phone '81912345678', birth '01/01/2000', gender 'Feminino', address 'Avenida Brasil'
     And I click on the patient create button
     Then I see the text 'Dados do Paciente'
 
@@ -23,22 +23,22 @@ Feature: Manage patient
 
   Scenario: Add a patient with invalid email failed
     Given I visit the patient creation page
-    When I fill patient name with 'Nome do Paciente', cpf with '12369874510', email with 'email'
+    When I fill name 'Nome do Paciente', cpf '12369874510', email 'email', phone '81912345678', birth '01/01/2000', gender 'Feminino', address 'Avenida Brasil'
     And I click on the patient create button
     Then I see the text 'Email is invalid'
 
   Scenario: Add a patient with cpf already existent failed
     Given I visit the patient creation page
-    When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
+    When I fill name 'Nome do Paciente', cpf '12369874510', email 'patient@email.com', phone '81912345678', birth '01/01/2000', gender 'Feminino', address 'Avenida Brasil'
     And I click on the patient create button
     When I visit the patient creation page
-    And I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
+    When I fill name 'Nome do Paciente', cpf '12369874510', email 'patient@email.com', phone '81912345678', birth '01/01/2000', gender 'Feminino', address 'Avenida Brasil'
     And I click on the patient create button
     Then I see the text 'Cpf has already been taken'
 
   Scenario: Remove a patient
     Given I visit the patient creation page
-    When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
+    When I fill name 'Nome do Paciente', cpf '12369874510', email 'patient@email.com', phone '81912345678', birth '01/01/2000', gender 'Feminino', address 'Avenida Brasil'
     And I click on the patient create button
     And I visit patient index page
     And I click on the 'Nome do Paciente' link
@@ -47,7 +47,7 @@ Feature: Manage patient
 
   Scenario: Edit a patient name
     Given I visit the patient creation page
-    When I fill patient name with 'Nome do Paciente', cpf with '98765432112', email with 'patient@email.com'
+    When I fill name 'Nome do Paciente', cpf '12369874510', email 'patient@email.com', phone '81912345678', birth '01/01/2000', gender 'Feminino', address 'Avenida Brasil'
     And I click on the patient create button
     And I visit patient index page
     And I click on the 'Nome do Paciente' link
