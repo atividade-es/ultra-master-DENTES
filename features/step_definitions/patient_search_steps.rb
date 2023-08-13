@@ -1,6 +1,6 @@
-Given('I am in homepage') do |title|
+Given('I am in homepage') do
   visit '/'
-  expect(page).to have_content(title)
+  expect(page).to have_content('Welcome')
 end
 
 When('I click on the patient search link') do

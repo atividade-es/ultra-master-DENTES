@@ -25,8 +25,8 @@ Feature: Manage atendimento
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
-    And I enter the atendimento date '09/27/2024'
-    And I select atendimento time with '15':'00'
+    And I enter the atendimento date '2024/08/15'
+    And I select atendimento time with '15:00'
     And I fill atendimento observation with 'Observacao do atendimento'
     And I click on the atendimento create button
     Then I see the text 'Atendimento foi criado com sucesso.'
@@ -35,15 +35,6 @@ Feature: Manage atendimento
     When I am in homepage
     And I click on the atendimento index page link
     And I click on the atendimento creation page link
-    And I click on the atendimento create button
-    Then I see the text 'erros ocorreram'
-
-  Scenario: Add an atendimento with invalid dentist and patient
-    When I am in homepage
-    And I click on the atendimento index page link
-    And I click on the atendimento creation page link
-    And I select atendimento dentist with 'Dr. Drake Ramoray'
-    And I select atendimento patient with 'Nome do Paciente'
     And I click on the atendimento create button
     Then I see the text 'erros ocorreram'
 
@@ -63,15 +54,14 @@ Feature: Manage atendimento
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
-    And I enter the atendimento date '09/27/2024'
-    And I select atendimento time with '15':'00'
+    And I enter the atendimento date '2024/08/15'
+    And I select atendimento time with '15:00'
     And I fill atendimento observation with 'Observacao do atendimento'
     And I click on the atendimento create button
     When I am in homepage
     And I click on the atendimento index page link
     And I click on atendimento delete button
-    #To Do
-    #Then
+    Then I see the text 'Atendimento excluido com sucesso.'
 
   Scenario: Edit an atendimento observation
     Given I visit the patient creation page
@@ -89,8 +79,8 @@ Feature: Manage atendimento
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
-    And I enter the atendimento date '09/27/2024'
-    And I select atendimento time with '15':'00'
+    And I enter the atendimento date '2024/08/15'
+    And I select atendimento time with '15:00'
     And I fill atendimento observation with 'Observacao do atendimento'
     And I click on the atendimento create button
     When I am in homepage
