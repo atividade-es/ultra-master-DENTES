@@ -1,6 +1,6 @@
-Given('I am in {string} page') do |title|
+Given('I am in homepage') do
   visit '/'
-  expect(page).to have_content(title)
+  expect(page).to have_content('Welcome')
 end
 
 When('I click on the patient search link') do
@@ -23,7 +23,7 @@ And('I click on the patient create button') do
 end
 
 And('I am in the patient search page') do
-  visit '/search'
+  visit '/patients/search'
   expect(page).to have_content('Buscar Paciente')
 end
 

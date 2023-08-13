@@ -9,8 +9,7 @@ Feature: Manage dentists
     And I check 'dentist_disponivel_segunda','dentist_disponivel_quarta' and 'dentist_disponivel_sexta'
     And I select start time with '08':'00'
     And I select end time with '18':'00'
-    And I fill 'dentist_contato' with '1234567890'
-    And I fill 'dentist_email' with 'drake@example.com'
+    And I fill dentist contact with '1234567890' and dentist email with 'drake@example.com'
     And I click on the dentist create button
     Then I see the text 'Dr. Drake Ramoray'
 
