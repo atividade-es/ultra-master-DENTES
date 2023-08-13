@@ -1,10 +1,10 @@
 Feature: Manage patient
   As a system user
-  I want to add and remove a patient
+  I want to add, edit and remove a patient
   So that I can manage the registered patients
 
   Scenario: Open the create page
-    Given I am in 'Welcome' page
+    Given I am in homepage
     When I click on the patient creation page link
     Then I see the text 'Cadastro do Paciente'
 

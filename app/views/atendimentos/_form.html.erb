@@ -1,4 +1,14 @@
 <%= form_with model: @atendimento do |form| %>
+  <% if atendimento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(atendimento.errors.count, "erros") %> ocorreram:</h2>
+      <ul>
+        <% atendimento.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div>
     <%= form.label :dentist_id %>
     <%= form.collection_select :dentist_id, Dentist.all, :id, :nome, prompt: "Selecione um Dentista"%>

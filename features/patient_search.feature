@@ -1,10 +1,10 @@
-Feature: Busca de atendimentos
-  As a Usuario do sistema
-  I want to buscar um atendimento informando o nome do paciente ou o nome do medico
-  So that eu visualize o atendimento desejada
+Feature: Search Patients
+  As a system user
+  I want to search patient by name or cpf
+  So that I find the desired patient
 
   Scenario: Open the searching page
-    Given I am in 'Welcome' page
+    Given I am in homepage
     When I click on the patient search link
     Then I see a view with text 'Buscar Paciente'
 

@@ -41,10 +41,6 @@ Then('I see the name of {string} displayed') do |string|
   assert_text(string)
 end
 
-Given('there is a dentist with the name {string} and specialization {string}') do |name, specialization|
-  Dentist.create(nome: name, especializacao: specialization)
-end
-
 When('I visit dentist index page') do
   visit 'dentists/'
 end
@@ -74,6 +70,11 @@ When('I fill dentist name with {string}, especializacao with {string}, cro with 
   fill_in 'dentist_nome', with: name
   select especializacao, :from => 'dentist_especializacao'
   fill_in 'dentist_cro', with: cro
+end
+
+And('I fill dentist contact with {string} and dentist email with {string}') do |contact, email|
+  fill_in 'dentist_contato', with: contact
+  fill_in 'dentist_email', with: email
 end
 
 And('I select start time with {string}:{string}') do |time, minutes|
