@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/patients/search', to: 'patients#search', as: 'search_paciente'
+  get '/dentists/search', to: 'dentists#search', as: 'search_dentist'
   resources :atendimentos
   resources :patients
   resources :dentists
