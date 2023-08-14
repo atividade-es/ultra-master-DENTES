@@ -13,23 +13,34 @@ Feature: Manage dentists
     And I click on the dentist create button
     Then I see the text 'Dr. Drake Ramoray'
 
+  Scenario: Add a dentist with all fields empty
+    Given I visit the dentist registration page
+    And I click on the dentist create button
+    Then I see the text 'erros ocorreram durante o cadastro'
+
   Scenario: Remove a dentist
     Given I visit the dentist registration page
-    And Dentist exits with name 'Dr. Drake Ramoray', especializacao 'Clínico Geral', entrada '08':'00', saida '18':'00'
+    And I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', entrada with '08':'00' and saida with '18':'00'
+    And I fill dentist cro with '12345/SC', email with 'email@example.com' and contact with '49927272727'
+    And I click on the dentist create button
     When I visit the dentist page
     And I click on the delete link on the dentist page
     Then I do not see 'Dr. Drake Ramoray' on page
 
   Scenario: View a dentist's details
     Given I visit the dentist registration page
-    And Dentist exits with name 'Dr. Drake Ramoray', especializacao 'Clínico Geral', entrada '08':'00', saida '18':'00'
+    And I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', entrada with '08':'00' and saida with '18':'00'
+    And I fill dentist cro with '12345/SC', email with 'email@example.com' and contact with '49927272727'
+    And I click on the dentist create button
     When I visit dentist index page
     And I click on the name of the desired dentist
     Then I see the name of "Dr. Drake Ramoray" displayed
 
   Scenario: Edit a dentist's information
     Given I visit the dentist registration page
-    And Dentist exits with name 'Dr. Drake Ramoray', especializacao 'Clínico Geral', entrada '08':'00', saida '18':'00'
+    And I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', entrada with '08':'00' and saida with '18':'00'
+    And I fill dentist cro with '12345/SC', email with 'email@example.com' and contact with '49927272727'
+    And I click on the dentist create button
     When I visit the dentist page
     And I click on the edit link of the desired dentist
     And I update the dentist's name to "Dr. Jane Johnson"

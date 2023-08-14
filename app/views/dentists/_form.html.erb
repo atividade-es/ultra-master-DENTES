@@ -1,4 +1,14 @@
 <%= form_with model: @dentist do |form| %>
+  <% if dentist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dentist.errors.count, "erro") %> ocorreram durante o cadastro:</h2>
+      <ul>
+        <% dentist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= form.label :nome %>
   <%= form.text_field :nome %>
 
