@@ -14,3 +14,7 @@ end
 When('I click on the dentist search button') do
   click_on "Buscar"
 end
+
+And('I fill dentist cro with {string}') do |cro|
+  fill_in 'dentist_cro', with: cro
+end

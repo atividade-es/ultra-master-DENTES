@@ -87,18 +87,17 @@ And('I select end time with {string}:{string}') do |time, minutes|
   select minutes, from: 'dentist_horario_saida_5i'
 end
 
-And('Dentist exits with name {string}, especializacao {string}, entrada {string}:{string}, saida {string}:{string}') do |name, especializacao, timeEntrada, minutesEntrada, timeSaida, minutesSaida|
-  visit '/dentists/new'
+And('I fill dentist name with {string}, especializacao with {string}, entrada with {string}:{string} and saida with {string}:{string}') do |name, especializacao, timeEntrada, minutesEntrada, timeSaida, minutesSaida|
   fill_in 'dentist_nome', with: name
   select especializacao, :from => 'dentist_especializacao'
-  fill_in 'dentist_cro', with: '12345/RJ'
-  check 'dentist_disponivel_segunda'
   select timeEntrada, from: 'dentist_horario_chegada_4i'
   select minutesEntrada, from: 'dentist_horario_chegada_5i'
   select timeSaida, from: 'dentist_horario_saida_4i'
   select minutesSaida, from: 'dentist_horario_saida_5i'
-  fill_in 'dentist_contato', with: '81912345678'
-  fill_in 'dentist_email', with: 'dentist@email.com'
+end
 
-  click_button "Create Dentist"
+And('I fill dentist cro with {string}, email with {string} and contact with {string}') do |cro, email, contact|
+  fill_in 'dentist_cro', with: cro
+  fill_in 'dentist_email', with: email
+  fill_in 'dentist_contato', with: contact
 end
