@@ -41,6 +41,22 @@ class DentistsController < ApplicationController
     redirect_to dentists_url, notice: 'Dentist was successfully destroyed.'
   end
 
+  def search
+    puts '------------------------- entrou 2-------------------------'
+    nome = params[:nome]
+    cro = params[:cro]
+    puts '------------------------- entrou -------------------------'
+    if nome.present? && cro.present?
+      @dentists = Dentist.where('nome LIKE ? AND cro LIKE ?', "%#{nome}%", "%#{cro}%")
+    elsif nome.present?
+      @dentists = Dentist.where('nome LIKE ?', "%#{nome}%")
+    elsif cro.present?
+      @dentists = Dentist.where('cro LIKE ?', "%#{cro}%")
+    else
+      @dentists = Dentist.all
+    end
+  end
+
   private
 
   def set_dentist
