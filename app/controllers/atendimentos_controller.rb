@@ -18,15 +18,11 @@ class AtendimentosController < ApplicationController
 
   # GET /atendimentos/1/edit
   def edit
-    @atendimento = Atendimento.find(params[:id])
   end
 
   # POST /atendimentos or /atendimentos.json
   def create
-    data = params[:atendimento][:data]
-    hora = params[:atendimento][:hora]
-    data_hora = "#{data} #{hora}"
-
+    data_hora = params[:atendimento][:data_hora]
     datetime = DateTime.parse(data_hora)
 
     @atendimento = Atendimento.new(atendimento_params.merge(data_hora: datetime))
@@ -38,10 +34,14 @@ class AtendimentosController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /atendimentos/1 or /atendimentos/1.json
   def update
     respond_to do |format|
-      if @atendimento.update(atendimento_params)
+      data_hora = params[:atendimento][:data_hora] # Ajuste para pegar o campo correto do formulário
+      datetime = DateTime.parse(data_hora)
+
+      if @atendimento.update(atendimento_params.merge(data_hora: datetime))
         format.html { redirect_to atendimento_url(@atendimento), notice: "Atendimento was successfully updated." }
         format.json { render :show, status: :ok, location: @atendimento }
       else
@@ -50,6 +50,8 @@ class AtendimentosController < ApplicationController
       end
     end
   end
+
+
 
   # DELETE /atendimentos/1 or /atendimentos/1.json
   def destroy
@@ -86,6 +88,6 @@ class AtendimentosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
   def atendimento_params
-    params.require(:atendimento).permit(:dentist_id, :patient_id, :data_hora, :observacao)
+    params.require(:atendimento).permit(:dentist_id, :patient_id, :data_hora, :data, :hora, :observacao)
   end
 end

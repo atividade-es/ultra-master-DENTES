@@ -20,8 +20,11 @@
       <td><%= atendimento.observacao %></td>
       <td><%= link_to 'Mostrar', atendimento %></td>
       <td><%= link_to 'Editar', edit_atendimento_path(atendimento) %></td>
-      <td><%= link_to 'Excluir', atendimento, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
-    </tr>
+      <td><%= link_to "Excluir", atendimento_path(atendimento), data: {
+        turbo_method: :delete
+      } %></td>
+
+  </tr>
   <% end %>
   </tbody>
 </table>

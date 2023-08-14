@@ -10,6 +10,7 @@ class Dentist < ApplicationRecord
   validates :disponivel_domingo, inclusion: { in: [0, 1] }, presence: true
   
   has_many :atendimentos
+  has_many :patients, through: :atendimentos
 
   def available_on?(datetime)
     case datetime.strftime('%A').downcase.to_sym

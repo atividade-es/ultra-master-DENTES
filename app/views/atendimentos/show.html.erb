@@ -6,4 +6,8 @@
 <p><strong>Data e Hora:</strong> <%= @atendimento.data_hora %></p>
 <p><strong>Descrição:</strong> <%= @atendimento.observacao %></p>
 
-<%= link_to 'Voltar', atendimentos_path %>
+<%= link_to 'Editar', edit_atendimento_path(@atendimento) %> |
+<%= link_to 'Voltar', atendimentos_path %> |
+<%= link_to "Excluir", atendimento_path(@atendimento), data: {
+  turbo_method: :delete
+} %>

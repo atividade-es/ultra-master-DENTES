@@ -4,4 +4,5 @@ class Patient < ApplicationRecord
   validates :cpf, presence: true, length: { is: 11 }, uniqueness: true, numericality: { only_integer: true, message: "should only contain numbers" }
 
   has_many :atendimentos
+  has_many :dentists, through: :atendimentos
 end
