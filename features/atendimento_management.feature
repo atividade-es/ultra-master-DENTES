@@ -85,3 +85,5 @@ Feature: Manage atendimento
     And I click on the atendimento edit page link
     And I fill atendimento observation with 'Nova Observacao do atendimento'
     And I click on the atendimento update button
+    Then I see the text 'Atendimento was successfully updated.'
+    And I see the text 'Nova Observacao do atendimento'
