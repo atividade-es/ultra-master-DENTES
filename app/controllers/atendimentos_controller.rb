@@ -23,7 +23,14 @@ class AtendimentosController < ApplicationController
   # POST /atendimentos or /atendimentos.json
   def create
     data_hora = params[:atendimento][:data_hora]
-    datetime = DateTime.parse(data_hora)
+    begin
+      datetime = DateTime.parse(data_hora)
+    rescue ArgumentError
+      @atendimento = Atendimento.new
+      @atendimento.errors.add(:data_hora, "Data e hora inválidas")
+      render :new, status: :unprocessable_entity
+      return
+    end
 
     @atendimento = Atendimento.new(atendimento_params.merge(data_hora: datetime))
 
@@ -57,7 +64,7 @@ class AtendimentosController < ApplicationController
   def destroy
     @atendimento = Atendimento.find(params[:id])
     @atendimento.destroy
-    redirect_to atendimentos_path, notice: "Consulta excluida com sucesso."
+    redirect_to atendimentos_path, notice: "Atendimento excluido com sucesso."
   end
 
   def search

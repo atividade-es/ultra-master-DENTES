@@ -1,6 +1,6 @@
-Given('I am in {string} page') do |title|
+Given('I am in homepage') do
   visit '/'
-  expect(page).to have_content(title)
+  expect(page).to have_content('Welcome')
 end
 
 When('I click on the patient search link') do
@@ -23,7 +23,7 @@ And('I click on the patient create button') do
 end
 
 And('I am in the patient search page') do
-  visit '/search'
+  visit '/patients/search'
   expect(page).to have_content('Buscar Paciente')
 end
 
@@ -37,7 +37,7 @@ end
 
 #------------------------------------------------------------------------
 
-Then('I see the patient {int} cpf') do |cpf|
+Then('I see the patient {string} cpf') do |cpf|
   expect(page).to have_content(cpf)
 end
 
@@ -45,4 +45,14 @@ end
 
 Then('I see the text {string}') do |message|
   expect(page).to have_content(message)
+end
+
+#------------------------------------------------------------------------
+
+And('I fill patient name with {string}') do |name|
+  fill_in 'patient_name', with: name
+end
+
+And('I fill patient cpf with {string}') do |cpf|
+  fill_in 'patient_cpf', with: cpf
 end

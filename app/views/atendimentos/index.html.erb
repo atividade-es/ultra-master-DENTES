@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Consultas</h1>
+<h1>Atendimentos</h1>
 <table>
   <thead>
   <tr>
@@ -19,16 +19,15 @@
       <td><%= atendimento.data_hora %></td>
       <td><%= atendimento.observacao %></td>
       <td><%= link_to 'Mostrar', atendimento %></td>
-      <td><%= link_to 'Editar', edit_atendimento_path(atendimento) %></td>
-      <td><%= link_to "Excluir", atendimento_path(atendimento), data: {
+      <td><%= link_to 'Editar', edit_atendimento_path(atendimento), class: 'edit-link' %></td>
+      <td><%= link_to "Desmarcar", atendimento_path(atendimento), class: 'delete-link', data: {
         turbo_method: :delete
       } %></td>
-
   </tr>
   <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to "Nova consulta", new_atendimento_path %>
+<%= link_to "Novo atendimento", new_atendimento_path %>
 <br>
 <%= link_to "Voltar para o Inicio", root_path %>

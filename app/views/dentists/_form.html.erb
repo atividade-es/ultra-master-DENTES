@@ -1,9 +1,22 @@
 <%= form_with model: @dentist do |form| %>
+  <% if dentist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dentist.errors.count, "erro") %> ocorreram durante o cadastro:</h2>
+      <ul>
+        <% dentist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= form.label :nome %>
   <%= form.text_field :nome %>
 
   <%= form.label :especializacao %>
   <%= form.select :especializacao, ['Ortodontia', 'Endodontia', 'Implantodontia', 'Clínico Geral', 'Periodontia', 'Odontopediatria', 'Cirurgia Bucomaxilofacial'] %>
+
+  <%= form.label :cro, 'CRO' %>
+  <%= form.text_field :cro %>
 
   <h3>Dias de Atendimento:</h3>
   <%= form.label :disponivel_segunda, 'Segunda-feira' %>
@@ -26,6 +39,25 @@
 
   <%= form.label :disponivel_domingo, 'Domingo' %>
   <%= form.check_box :disponivel_domingo %>
+
+  <h3>Horário de Atendimento</h3>
+  <%= form.label :horario_chegada, 'Horário de Chegada' %>
+  <%= form.time_select :horario_chegada, { minute_step: 15, start_hour: 6, end_hour: 16 }, { class: 'form-control' } %>
+
+  <p>
+
+  <%= form.label :horario_saida, 'Horário de Saída' %>
+  <%= form.time_select :horario_saida, { minute_step: 15, start_hour: 12, end_hour: 22 }, { class: 'form-control' } %>
+
+  <p></p>
+
+  <%= form.label :contato %>
+  <%= form.text_field :contato %>
+
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+
+  <p></p>
 
   <%= form.submit %>
 <% end %>

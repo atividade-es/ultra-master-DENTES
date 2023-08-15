@@ -2,16 +2,14 @@
 
   <% if @atendimento.errors.any? %>
     <div id="error_explanation">
-      <h3><%= pluralize(@atendimento.errors.count, "error") %> causado no cadastro:</h3>
-
+      <h3><%= pluralize(@atendimento.errors.count, "erros") %> ocorreram:</h3>
       <ul>
-        <% @atendimento.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <% @atendimento.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
   <div>
     <%= form.label :dentist_id %>
     <%= form.collection_select :dentist_id, Dentist.all, :id, :nome, prompt: "Selecione um Dentista"%>

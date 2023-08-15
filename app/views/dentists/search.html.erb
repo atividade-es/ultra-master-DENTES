@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buscar Dentista</title>
+</head>
+<body>
+<h1>Buscar Dentista</h1>
+
+<%= form_with model: @dentist, url: search_dentist_path, method: :get do |form| %>
+  <div>
+    <label for="search_name">Nome:</label>
+    <%= form.text_field :nome, id: "dentist_nome" %>
+  </div>
+
+  <div>
+    <label for="search_cro">CRO:</label>
+    <%= form.text_field :cro, id: "dentist_cro" %>
+  </div>
+
+  <div>
+    <%= form.submit "Buscar" %>
+  </div>
+<% end %>
+
+<% if @dentists.present? %>
+  <h2>Resultados da busca:</h2>
+  <ul>
+    <% @dentists.each do |dentist| %>
+      <li>
+        <p><strong>Nome:</strong> <%= dentist.nome %></p>
+        <p><strong>Email:</strong> <%= dentist.email %></p>
+        <p><strong>Contato:</strong> <%= dentist.contato %></p>
+        <p><strong>CRO:</strong> <%= dentist.cro %></p>
+        <p><strong>Especialização:</strong> <%= dentist.especializacao %></p>
+        <p><strong>Horario de chegada:</strong> <%= dentist.horario_chegada %></p>
+        <p><strong>Horario de saida:</strong> <%= dentist.horario_saida %></p>
+        <hr>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhum dentista encontrado.</p>
+<% end %>
+</body>
+</html>

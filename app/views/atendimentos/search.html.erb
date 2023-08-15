@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Buscar Consulta</title>
+  <title>Buscar Atendimento</title>
 </head>
 <body>
-<h1>Buscar Consula</h1>
+<h1>Buscar Atendimento</h1>
 
 <%= form_with url: search_atendimento_path, method: :get do |form| %>
   <div>
@@ -27,10 +27,10 @@
   </div>
 <% end %>
 
-<% if @consultas.present? %>
+<% if @atendimentos.present? %>
   <h2>Resultados da busca:</h2>
   <ul>
-    <% @consultas.each do |consulta| %>
+    <% @atendimentos.each do |consulta| %>
       <li>
         <p><strong>Dentista:</strong> <%= consulta.dentist.nome %></p>
         <p><strong>Paciente:</strong> <%= consulta.patient.name %></p>

@@ -17,6 +17,10 @@ class DentistsController < ApplicationController
     if @dentist.save
       redirect_to @dentist, notice: 'Dentist was successfully created.'
     else
+      puts 'ERROR ---------------------'
+      puts @dentist.errors.full_messages # Imprime mensagens de erro
+      puts "horario_chegada: #{@dentist.horario_chegada}"
+      puts "horario_saida: #{@dentist.horario_saida}"
       render :new, status: :unprocessable_entity
     end
   end
@@ -37,6 +41,22 @@ class DentistsController < ApplicationController
     redirect_to dentists_url, notice: 'Dentist was successfully destroyed.'
   end
 
+  def search
+    puts '------------------------- entrou 2-------------------------'
+    nome = params[:nome]
+    cro = params[:cro]
+    puts '------------------------- entrou -------------------------'
+    if nome.present? && cro.present?
+      @dentists = Dentist.where('nome LIKE ? AND cro LIKE ?', "%#{nome}%", "%#{cro}%")
+    elsif nome.present?
+      @dentists = Dentist.where('nome LIKE ?', "%#{nome}%")
+    elsif cro.present?
+      @dentists = Dentist.where('cro LIKE ?', "%#{cro}%")
+    else
+      @dentists = Dentist.all
+    end
+  end
+
   private
 
   def set_dentist
@@ -44,6 +64,6 @@ class DentistsController < ApplicationController
   end
 
   def dentist_params
-    params.require(:dentist).permit(:nome, :especializacao, :disponivel_segunda, :disponivel_terca, :disponivel_quarta, :disponivel_quinta, :disponivel_sexta, :disponivel_sabado, :disponivel_domingo)
+    params.require(:dentist).permit(:nome, :especializacao, :disponivel_segunda, :disponivel_terca, :disponivel_quarta, :disponivel_quinta, :disponivel_sexta, :disponivel_sabado, :disponivel_domingo, :cro, :horario_chegada, :horario_saida, :contato, :email)
   end
 end
