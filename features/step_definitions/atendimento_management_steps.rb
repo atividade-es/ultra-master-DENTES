@@ -27,25 +27,6 @@ And('I click on the atendimento create button') do
   click_on 'Create Atendimento'
 end
 
-# And('I click on atendimento delete button') do
-#   click_on 'Desmarcar'
-# end
-
-# And('I click on the atendimento edit page link') do
-#   click_link 'Editar'
-# end
-
-# And('I click on atendimento delete button') do
-#   expect(page).to have_content('Atendimentos')
-#   expect(page).to have_content('Nome do Paciente')
-#   using_wait_time(10) do
-#     page.find('table tbody', wait: 10)
-#     target_row = page.find('table tbody tr', text: '2024-08-15 15:00:00 UTC', wait: 10)
-#     within(target_row) do
-#       click_link 'Desmarcar'
-#     end
-#   end
-# end
 
 And('I click on the atendimento edit page link') do
   click_link 'Editar' # Pode ser substituído por: click_link class: 'edit-link'
