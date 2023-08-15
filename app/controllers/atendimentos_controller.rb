@@ -64,8 +64,6 @@ class AtendimentosController < ApplicationController
     end
   end
 
-
-
   # DELETE /atendimentos/1 or /atendimentos/1.json
   def destroy
     @atendimento = Atendimento.find(params[:id])
@@ -74,24 +72,18 @@ class AtendimentosController < ApplicationController
   end
 
   def search
-    @consultas = Atendimento.all
+    dentist_id = params[:dentist_id]
+    patient_id = params[:patient_id]
+    data_hora = params[:data_hora]
 
-    if params[:dentist_id].present?
-      dentist = Dentist.find(params[:dentist_id])
-      @consultas = @consultas.where(dentist: dentist)
-    end
+    query_conditions = {}
 
-    if params[:patient_id].present?
-      patient = Patient.find(params[:patient_id])
-      @consultas = @consultas.where(patient: patient)
-    end
+    query_conditions[:dentist_id] = dentist_id if dentist_id.present?
+    query_conditions[:patient_id] = patient_id if patient_id.present?
+    query_conditions[:data_hora] = DateTime.parse(data_hora) if data_hora.present?
 
-    if params[:data_hora].present?
-      datetime = DateTime.parse(params[:data_hora])
-      @consultas = @consultas.where(data_hora: datetime)
-    end
+    @atendimentos = Atendimento.where(query_conditions)
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
