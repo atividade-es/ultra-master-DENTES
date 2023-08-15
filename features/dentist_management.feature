@@ -20,7 +20,7 @@ Feature: Manage dentists
 
   Scenario: Remove a dentist
     Given I visit the dentist registration page
-    And I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', entrada with '08':'00' and saida with '18':'00'
+    When I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', entrada with '08':'00' and saida with '18':'00'
     And I fill dentist cro with '12345/SC', email with 'email@example.com' and contact with '49927272727'
     And I click on the dentist create button
     When I visit the dentist page
@@ -29,7 +29,7 @@ Feature: Manage dentists
 
   Scenario: View a dentist's details
     Given I visit the dentist registration page
-    And I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', entrada with '08':'00' and saida with '18':'00'
+    When I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', entrada with '08':'00' and saida with '18':'00'
     And I fill dentist cro with '12345/SC', email with 'email@example.com' and contact with '49927272727'
     And I click on the dentist create button
     When I visit dentist index page
@@ -38,7 +38,7 @@ Feature: Manage dentists
 
   Scenario: Edit a dentist's information
     Given I visit the dentist registration page
-    And I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', entrada with '08':'00' and saida with '18':'00'
+    When I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', entrada with '08':'00' and saida with '18':'00'
     And I fill dentist cro with '12345/SC', email with 'email@example.com' and contact with '49927272727'
     And I click on the dentist create button
     When I visit the dentist page

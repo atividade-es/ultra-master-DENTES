@@ -3,7 +3,7 @@ Feature: Search dentist
   I want to search dentist # by name or cpf
   So that I find the desired dentist
 
-  Scenario: Open the searching page
+  Scenario: Open the dentist searching page
     Given I am in homepage
     When I click on the dentist search link
     Then I see a view with text 'Buscar Dentista'
