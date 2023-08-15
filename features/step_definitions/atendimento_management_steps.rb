@@ -1,9 +1,9 @@
 When('I click on the atendimento index page link') do
-  click_on 'Atendimentos'
+  click_link 'Atendimentos'
 end
 
 And('I click on the atendimento creation page link') do
-  click_on 'Novo atendimento'
+  click_link 'Novo atendimento'
 end
 
 And('I select atendimento dentist with {string}') do |string|
@@ -14,13 +14,9 @@ And('I select atendimento patient with {string}') do |string|
   select string, :from => 'atendimento_patient_id'
 end
 
-And('I enter the atendimento date {string}') do |string|
-  date = Date.parse(string)
-  fill_in 'atendimento_data', with: date
-end
-
-And('I select atendimento time with {string}') do |string|
-  fill_in 'atendimento_hora', with: string
+And('I enter the atendimento date and time {string}') do |string|
+  datetime = DateTime.parse(string)
+  fill_in 'atendimento_data_hora', with: datetime
 end
 
 And('I fill atendimento observation with {string}') do |string|
@@ -31,13 +27,15 @@ And('I click on the atendimento create button') do
   click_on 'Create Atendimento'
 end
 
-And('I click on atendimento delete button') do
-  click_on 'Desmarcar'
-end
 
 And('I click on the atendimento edit page link') do
-  click_on 'Editar'
+  click_link 'Editar' # Pode ser substituído por: click_link class: 'edit-link'
 end
+
+And('I click on atendimento delete button') do
+  click_link 'Desmarcar' # Pode ser substituído por: click_link class: 'delete-link'
+end
+
 
 And('I click on the atendimento update button') do
   click_on 'Update Atendimento'

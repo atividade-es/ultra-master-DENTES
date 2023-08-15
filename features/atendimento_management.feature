@@ -25,13 +25,12 @@ Feature: Manage atendimento
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
-    And I enter the atendimento date '2024/08/15'
-    And I select atendimento time with '15:00'
+    And I enter the atendimento date and time '2024-08-12 15:00:00'
     And I fill atendimento observation with 'Observacao do atendimento'
     And I click on the atendimento create button
     Then I see the text 'Atendimento foi criado com sucesso.'
 
-  Scenario: Add an atendimento with missing fields failed
+    Scenario: Add an atendimento with missing fields failed
     When I am in homepage
     And I click on the atendimento index page link
     And I click on the atendimento creation page link
@@ -54,8 +53,7 @@ Feature: Manage atendimento
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
-    And I enter the atendimento date '2024/08/15'
-    And I select atendimento time with '15:00'
+    And I enter the atendimento date and time '2024-08-12 15:00:00'
     And I fill atendimento observation with 'Observacao do atendimento'
     And I click on the atendimento create button
     When I am in homepage
@@ -79,8 +77,7 @@ Feature: Manage atendimento
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
-    And I enter the atendimento date '2024/08/15'
-    And I select atendimento time with '15:00'
+    And I enter the atendimento date and time '2024-08-12 15:00:00'
     And I fill atendimento observation with 'Observacao do atendimento'
     And I click on the atendimento create button
     When I am in homepage

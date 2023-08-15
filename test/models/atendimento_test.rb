@@ -36,7 +36,7 @@ class AtendimentoTest < ActiveSupport::TestCase
   test "atendimento should not be created without a dentist" do
     atendimento = Atendimento.new(
       patient: Patient.find_by_cpf(12345678961),
-      data_hora: DateTime.new
+      data_hora: Time.utc(2024, 8, 9, 10, 0, 0),
     )
     assert_not atendimento.save, "Atendimento was created without a dentist"
   end
@@ -52,7 +52,7 @@ class AtendimentoTest < ActiveSupport::TestCase
   test "atendimento should be created with success" do
     atendimento = Atendimento.new(
       patient: Patient.find_by_cpf(12345678961),
-      data_hora: Time.utc(2023, 8, 9, 10, 0, 0),
+      data_hora: Time.utc(2024, 8, 9, 10, 0, 0),
       dentist: Dentist.find_by_nome('Nome do Dentista')
     )
     assert atendimento.save, "Failed to create atendimento"

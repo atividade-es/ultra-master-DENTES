@@ -1,4 +1,9 @@
 <h1>Novo Atendimento</h1>
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 <%= render 'form', atendimento: @atendimento %>
 <div>
   <%= link_to "Back to atendimentos", atendimentos_path %>

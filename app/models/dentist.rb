@@ -17,4 +17,22 @@ class Dentist < ApplicationRecord
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   has_many :atendimentos
+  has_many :patients, through: :atendimentos
+
+  def available_on?(datetime)
+    disponibilidade = {
+      monday: disponivel_segunda,
+      tuesday: disponivel_terca,
+      wednesday: disponivel_quarta,
+      thursday: disponivel_quinta,
+      friday: disponivel_sexta,
+      saturday: disponivel_sabado,
+      sunday: disponivel_domingo
+    }
+
+    day_symbol = datetime.strftime('%A').downcase.to_sym
+    disponibilidade[day_symbol] == 1
+  end
+
+
 end
