@@ -6,7 +6,7 @@
 <body>
 <h1>Buscar Atendimento</h1>
 
-<%= form_with url: search_atendimento_path, method: :get do |form| %>
+<%= form_with model: @atendimento, url: search_atendimento_path, method: :get do |form| %>
   <div>
     <%= form.label :dentist_id, "Dentista:" %>
     <%= form.collection_select :dentist_id, Dentist.all, :id, :nome, prompt: "Selecione um Dentista" %>
