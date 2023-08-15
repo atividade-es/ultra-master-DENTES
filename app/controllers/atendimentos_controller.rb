@@ -31,6 +31,12 @@ class AtendimentosController < ApplicationController
       render :new, status: :unprocessable_entity
       return
     end
+    if params[:atendimento][:dentist_id].blank?
+      @atendimento = Atendimento.new
+      @atendimento.errors.add(:Dentist, "não pode ficar em branco")
+      render :new, status: :unprocessable_entity
+      return
+    end
 
     @atendimento = Atendimento.new(atendimento_params.merge(data_hora: datetime))
 

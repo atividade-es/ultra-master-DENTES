@@ -8,7 +8,7 @@ class Atendimento < ApplicationRecord
 
   validates :data_hora, uniqueness: { scope: :dentist_id, message: "Dentista com consulta marcada neste horário" }
 
-  validate :dentist_available_on_requested_date
+  validate :dentist_available
   validate :data_nao_no_passado
   validate :horario_dentro_do_intervalo
   validate :intervalo_entre_atendimentos, on: :create
@@ -32,9 +32,11 @@ class Atendimento < ApplicationRecord
   end
 
 
-  def dentist_available_on_requested_date
-    unless dentist.available_on?(data_hora)
-      errors.add(:data_hora, "Dentista não está disponível neste dia")
+  def dentist_available
+    if dentist.present?
+      unless dentist.available_on?(data_hora)
+        errors.add(:data_hora, "Dentista não está disponível neste dia")
+      end
     end
   end
 
