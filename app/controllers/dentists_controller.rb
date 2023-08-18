@@ -44,15 +44,12 @@ class DentistsController < ApplicationController
   def search
     nome = params[:nome]
     cro = params[:cro]
-    if nome.present? && cro.present?
-      @dentists = Dentist.where('nome LIKE ? AND cro LIKE ?', "%#{nome}%", "%#{cro}%")
-    elsif nome.present?
-      @dentists = Dentist.where('nome LIKE ?', "%#{nome}%")
-    elsif cro.present?
-      @dentists = Dentist.where('cro LIKE ?', "%#{cro}%")
-    else
-      @dentists = Dentist.all
-    end
+
+    query = Dentist.all
+    query = query.where('nome LIKE ?', "%#{nome}%") if nome.present?
+    query = query.where('cro LIKE ?', "%#{cro}%") if cro.present?
+
+    @dentists = query
   end
 
   private
