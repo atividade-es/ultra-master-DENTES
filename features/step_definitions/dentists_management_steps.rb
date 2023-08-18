@@ -3,14 +3,6 @@ Given('I visit the dentist registration page') do
   expect(page).to have_content("Cadastrar Dentista")
 end
 
-When('I fill {field} with {string}') do |field, string|
-  fill_in field, with: string
-end
-
-And('I select {string} from {string}') do |select, field|
-  select select, :from => field
-end
-
 And('I check {string},{string} and {string}') do |check1, check2, check3|
   check check1
   check check2
@@ -21,10 +13,6 @@ And('I click on the dentist create button') do
   click_button "Create Dentist"
 end
 
-Then('I see that this dentist was saved') do
-  assert_text('Dr. Drake Ramoray')
-end
-
 And('I visit the dentist page') do
   visit 'dentists/1'
 end
@@ -33,12 +21,8 @@ When('I click on the delete link on the dentist page') do
   click_on 'Excluir Dentista'
 end
 
-Then('I see that this dentist was deleted') do
-  assert_no_text('Dr. Drake Ramoray')
-end
-
-Then('I see the name of {string} displayed') do |string|
-  assert_text(string)
+Then('I see the name of {string} displayed') do |name|
+  assert_text(name)
 end
 
 When('I visit dentist index page') do
@@ -60,10 +44,6 @@ end
 
 When('I click on the dentist update button') do
   click_on "Update Dentist"
-end
-
-Then('I see that the dentist information was updated') do
-  assert_text('Dr. Jane Johnson')
 end
 
 When('I fill dentist name with {string}, especializacao with {string}, cro with {string}') do |name, especializacao, cro|

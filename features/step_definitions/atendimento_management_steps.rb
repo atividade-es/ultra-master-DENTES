@@ -27,15 +27,13 @@ And('I click on the atendimento create button') do
   click_on 'Create Atendimento'
 end
 
-
 And('I click on the atendimento edit page link') do
-  click_link 'Editar' # Pode ser substituído por: click_link class: 'edit-link'
+  click_link 'Editar'
 end
 
 And('I click on atendimento delete button') do
-  click_link 'Desmarcar' # Pode ser substituído por: click_link class: 'delete-link'
+  click_link 'Desmarcar'
 end
-
 
 And('I click on the atendimento update button') do
   click_on 'Update Atendimento'
