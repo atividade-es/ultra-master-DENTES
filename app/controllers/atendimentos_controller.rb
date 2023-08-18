@@ -47,7 +47,6 @@ class AtendimentosController < ApplicationController
     end
   end
 
-
   # PATCH/PUT /atendimentos/1 or /atendimentos/1.json
   def update
     respond_to do |format|

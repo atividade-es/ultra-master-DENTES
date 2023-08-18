@@ -30,18 +30,18 @@
 <% if @atendimentos.present? %>
   <h2>Resultados da busca:</h2>
   <ul>
-    <% @atendimentos.each do |consulta| %>
+    <% @atendimentos.each do |atendimento| %>
       <li>
-        <p><strong>Dentista:</strong> <%= consulta.dentist.nome %></p>
-        <p><strong>Paciente:</strong> <%= consulta.patient.name %></p>
-        <p><strong>Data e Hora:</strong> <%= consulta.data_hora %></p>
-        <p><strong>Observação:</strong> <%= consulta.observacao %></p>
+        <p><strong>Dentista:</strong> <%= atendimento.dentist.nome %></p>
+        <p><strong>Paciente:</strong> <%= atendimento.patient.name %></p>
+        <p><strong>Data e Hora:</strong> <%= atendimento.data_hora %></p>
+        <p><strong>Observação:</strong> <%= atendimento.observacao %></p>
         <hr>
       </li>
     <% end %>
   </ul>
 <% else %>
-  <p>Nenhuma consulta encontrada.</p>
+  <p>Nenhum atendimento encontrado.</p>
 <% end %>
 <div>
   <%= link_to "Back to atendimentos", atendimentos_path %>
