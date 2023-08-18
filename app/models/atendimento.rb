@@ -6,7 +6,7 @@ class Atendimento < ApplicationRecord
   validates :patient, presence:true
   validates :data_hora, presence: true
 
-  validates :data_hora, uniqueness: { scope: :dentist_id, message: "Dentista com consulta marcada neste horário" }
+  validates :data_hora, uniqueness: { scope: :dentist_id, message: "Dentista com atendimento marcado neste horário" }
 
   validate :dentist_available
   validate :date_is_not_in_past

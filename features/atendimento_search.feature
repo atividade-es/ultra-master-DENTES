@@ -88,7 +88,7 @@ Feature: Busca de atendimentos
     When I am in homepage
     And I click on the atendimento search link
     And I click on the atendimento search search button
-    Then I see a view with text 'Nenhuma consulta encontrada.'
+    Then I see a view with text 'Nenhum atendimento encontrado.'
 
   Scenario: Search an existent atendimento by date and hour
     Given I visit the patient creation page
