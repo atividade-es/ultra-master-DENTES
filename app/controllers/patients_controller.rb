@@ -43,16 +43,13 @@ class PatientsController < ApplicationController
     name = params[:name]
     cpf = params[:cpf]
 
-    if name.present? && cpf.present?
-      @patients = Patient.where('name LIKE ? AND cpf LIKE ?', "%#{name}%", "%#{cpf}%")
-    elsif name.present?
-      @patients = Patient.where('name LIKE ?', "%#{name}%")
-    elsif cpf.present?
-      @patients = Patient.where('cpf LIKE ?', "%#{cpf}%")
-    else
-      @patients = Patient.all
-    end
+    query = Patient.all
+    query = query.where('name LIKE ?', "%#{name}%") if name.present?
+    query = query.where('cpf LIKE ?', "%#{cpf}%") if cpf.present?
+
+    @patients = query
   end
+
 
   private
   def patient_params
