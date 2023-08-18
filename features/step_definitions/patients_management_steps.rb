@@ -20,22 +20,22 @@ When('I click on the delete link on the patient page') do
   click_on 'Deletar'
 end
 
-Then('I do not see {string} on page') do |string|
-  assert_no_text(string)
+Then('I do not see {string} on page') do |name|
+  assert_no_text(name)
 end
 
 When('I click on the edit link of the patient') do
   click_on 'Editar'
 end
 
-And('I update the patient\'s name to {string}') do |string|
-  fill_in 'patient_name', with: string
+And('I update the patient\'s name to {string}') do |name|
+  fill_in 'patient_name', with: name
 end
 
 When('I click on the patient update button') do
   click_on "Update Patient"
 end
 
-And('I click on the {string} link') do |string|
-  click_on string
+And('I click on the {string} link') do |name|
+  click_on name
 end
