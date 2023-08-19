@@ -17,10 +17,6 @@ class DentistsController < ApplicationController
     if @dentist.save
       redirect_to @dentist, notice: 'Dentist was successfully created.'
     else
-      puts 'ERROR ---------------------'
-      puts @dentist.errors.full_messages # Imprime mensagens de erro
-      puts "horario_chegada: #{@dentist.horario_chegada}"
-      puts "horario_saida: #{@dentist.horario_saida}"
       render :new, status: :unprocessable_entity
     end
   end
@@ -44,15 +40,12 @@ class DentistsController < ApplicationController
   def search
     nome = params[:nome]
     cro = params[:cro]
-    if nome.present? && cro.present?
-      @dentists = Dentist.where('nome LIKE ? AND cro LIKE ?', "%#{nome}%", "%#{cro}%")
-    elsif nome.present?
-      @dentists = Dentist.where('nome LIKE ?', "%#{nome}%")
-    elsif cro.present?
-      @dentists = Dentist.where('cro LIKE ?', "%#{cro}%")
-    else
-      @dentists = Dentist.all
-    end
+
+    query = Dentist.all
+    query = query.where('nome LIKE ?', "%#{nome}%") if nome.present?
+    query = query.where('cro LIKE ?', "%#{cro}%") if cro.present?
+
+    @dentists = query
   end
 
   private

@@ -6,26 +6,26 @@ class Atendimento < ApplicationRecord
   validates :patient, presence:true
   validates :data_hora, presence: true
 
-  validates :data_hora, uniqueness: { scope: :dentist_id, message: "Dentista com consulta marcada neste horário" }
+  validates :data_hora, uniqueness: { scope: :dentist_id, message: "Dentista com atendimento marcado neste horário" }
 
   validate :dentist_available
-  validate :data_nao_no_passado
-  validate :horario_dentro_do_intervalo
-  validate :intervalo_entre_atendimentos, on: :create
+  validate :date_is_not_in_past
+  validate :time_in_range
+  validate :interval_between_atendimentos, on: :create
 
-  def data_nao_no_passado
+  def date_is_not_in_past
     if data_hora.present? && data_hora < Time.now
       errors.add(:data_hora, "Data não pode estar no passado")
     end
   end
 
-  def horario_dentro_do_intervalo
+  def time_in_range
     if data_hora.present? && (data_hora.hour < 8 || data_hora.hour >= 18)
       errors.add(:data_hora, "deve estar entre 8h e 18h")
     end
   end
 
-  def intervalo_entre_atendimentos
+  def interval_between_atendimentos
     if data_hora.present? && Atendimento.where("data_hora > ? AND data_hora < ?", data_hora - 1.hour, data_hora + 1.hour).exists?
       errors.add(:data_hora, "deve haver pelo menos 1 hora entre atendimentos")
     end
