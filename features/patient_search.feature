@@ -3,6 +3,9 @@ Feature: Search Patients
   I want to search patient by name or cpf
   So that I find the desired patient
 
+  Background:
+    Given I create an admin with email "user@example.com" and password "password"
+
   Scenario: Open the searching page
     Given I am in homepage
     When I click on the patient search link

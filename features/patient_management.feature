@@ -3,6 +3,9 @@ Feature: Manage patient
   I want to add, edit and remove a patient
   So that I can manage the registered patients
 
+  Background:
+    Given I create an admin with email "user@example.com" and password "password"
+
   Scenario: Open the create page
     Given I am in homepage
     When I click on the patient creation page link

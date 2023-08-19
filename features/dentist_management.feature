@@ -3,6 +3,9 @@ Feature: Manage dentists
   I want to registrar, editar, remover e exibir um dentista
   So that eu gerencie os dentistas do consultorio
 
+  Background:
+    Given I create an admin with email "user@example.com" and password "password"
+
   Scenario: Add a dentist
     Given I visit the dentist registration page
     When I fill dentist name with 'Dr. Drake Ramoray', especializacao with 'Clínico Geral', cro with '12345/RJ'

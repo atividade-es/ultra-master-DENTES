@@ -3,6 +3,9 @@ Feature: Busca de atendimentos
   I want to buscar um atendimento informando o nome do paciente ou o nome do medico
   So that eu visualize o atendimento desejada
 
+  Background:
+    Given I create an admin with email "user@example.com" and password "password"
+
   Scenario: Open the atendimento searching page
     Given I am in homepage
     When I click on the atendimento search link

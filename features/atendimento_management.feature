@@ -3,6 +3,9 @@ Feature: Manage atendimento
   I want to add, edit and remove atendimentos
   So that I can manage the system atendimentos
 
+  Background:
+    Given I create an admin with email "user@example.com" and password "password"
+
   Scenario: Open the create page
     Given I am in homepage
     When I click on the atendimento index page link
