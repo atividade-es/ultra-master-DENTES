@@ -43,8 +43,12 @@
 <% else %>
   <p>Nenhum atendimento encontrado.</p>
 <% end %>
-<div>
-  <%= link_to "Back to atendimentos", atendimentos_path %>
+
+<div class="text-center">
+  <%= link_to "<button>Back to atendimentos</button>".html_safe, atendimentos_path, class: "btn btn-primary" %>
+  <%= link_to "<button>New atendimentos</button>".html_safe, new_atendimento_path, class: "btn btn-secondary" %>
+  <%= link_to "<button>Home page</button>".html_safe, root_path, class: "btn btn-secondary" %>
 </div>
+
 </body>
 </html>
