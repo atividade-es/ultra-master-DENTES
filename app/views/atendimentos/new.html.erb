@@ -5,6 +5,8 @@
   </div>
 <% end %>
 <%= render 'form', atendimento: @atendimento %>
-<div>
-  <%= link_to "Back to atendimentos", atendimentos_path %>
+<p></p>
+<div class="text-center">
+  <%= link_to "<button>Back to atendimentos</button>".html_safe, atendimentos_path, class: "btn btn-primary" %>
+  <%= link_to "<button>Home page</button>".html_safe, root_path, class: "btn btn-secondary" %>
 </div>
