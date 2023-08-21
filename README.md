@@ -3,7 +3,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/40b7875f164e47a3b3ca81eb1d1c4d2f)](https://app.codacy.com/gh/atividade-es/ultra-master-DENTES/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 :octocat: Integrantes:\
-[Andrew Lopes](https://github.com/andrewlopes11) | [Erik César](https://github.com/Kire87) | [Izabel Nascimento](https://github.com/izabelnascimento) | [Lucas Branco](https://github.com/LBranco27) | [Luís Guilherme](https://github.com/Nidhoggui) |[Rochel Angelo](https://github.com/rochelangelo)
+[Erik César](https://github.com/Kire87) | [Izabel Nascimento](https://github.com/izabelnascimento) | [Lucas Branco](https://github.com/LBranco27) | [Luís Guilherme](https://github.com/Nidhoggui) |[Rochel Angelo](https://github.com/rochelangelo)
 
 Railway:\
 https://ultra-master-dentes-production.up.railway.app/
@@ -35,8 +35,8 @@ Projeto para implementação de um SaaS em Ruby e Rails com foco no servidor par
 
 O sistema visa facilitar o processo de agendamento e gerenciamento de atendimentos, garantindo que cada tipo de usuário tenha as permissões e funcionalidades adequadas de acordo com sua função no consultório médico.
 
-## :construction: Status do Projeto
-Em fase inicial de desenvolvimento.
+## ✅ Status do Projeto
+Projeto concluído.
 
 
 
