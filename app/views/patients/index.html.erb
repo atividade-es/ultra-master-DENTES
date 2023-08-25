@@ -1,26 +1,38 @@
-<table border="2" align="center" bgcolor="#228b22">
-  <tr>
-    <td colspan="2">
-      <table>
-        <tr>
-          <td>
-            Pacientes
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-  <% @patient.each do |patient| %>
+<div align="center">
+  <h1>Listagem dos Pacientes</h1>
+</div>
+<nav class="flex justify-between p-4">
+  <%= link_to "Home Dashboard", root_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  <%= link_to "Novo Paciente", new_patient_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+</nav>
+
+<div class="bg-blue-400 p-4 rounded-lg mb-4">
+  <table class="border-collapse border-2 border-white mx-auto">
+    <thead>
     <tr>
-      <td>
-        <%= link_to patient.name, patient %>
-      </td>
+      <th class="border border-white p-2">Nome</th>
+      <th class="border border-white p-2">Data de Nascimento</th>
+      <th class="border border-white p-2" colspan="3">Ações</th>
     </tr>
-    <td>
-      <%= link_to "<button>Home page</button>".html_safe, root_path, class: "btn btn-secondary" %>
-    </td>
-    <td>
-      <%= link_to "<button>New patient</button>".html_safe, new_patient_path, class: "btn btn-primary" %>
-    </td>
-<% end %>
-</table>
+    </thead>
+    <tbody>
+    <% @patient.each do |patient| %>
+      <tr>
+        <td class="border border-white p-2">
+          <p class="text-white font-semibold"><%= patient.name %></p>
+        </td>
+        <td class="border border-white p-2">
+          <% if patient.data_nascimento.present? %>
+            <p class="text-white font-semibold"><%= patient.data_nascimento.strftime('%d/%m/%Y') %></p>
+          <% else %>
+            <p class="text-white font-semibold">não definida</p>
+          <% end %>
+        </td>
+        <td class="border border-white p-2"><%= link_to 'Mostrar', patient, class: "text-white font-semibold hover:underline" %></td>
+        <td class="border border-white p-2"><%= link_to 'Editar', edit_patient_path(patient), class: "edit-link text-white font-semibold hover:underline" %></td>
+        <td class="border border-white p-2"><%= link_to "Excluir", patient_path(patient), class: 'delete-link', data: { turbo_method: :delete }, class: "text-white font-semibold hover:underline" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
