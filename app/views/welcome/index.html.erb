@@ -1,28 +1,71 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<% if admin_signed_in? %>
-  <%= link_to "Cadastrar paciente", new_patient_path %>
-  <br>
-  <%= link_to "Cadastrar dentista", new_dentist_path %>
-  <br>
-  <%= link_to "Listar todos pacientes", patients_url %>
-  <br>
-  <%= link_to "Listar todos dentistas", dentists_url %>
-  <br>
-  <%= link_to "Buscar paciente", search_paciente_path %>
-  <br>
-  <%= link_to "Buscar dentista", search_dentist_path %>
-  <br>
-  <%= link_to "Atendimentos", atendimentos_url %>
-  <br>
-  <%= link_to "Buscar Atendimento", search_atendimento_path %>
-  <br>
-  <br>
-  <%= button_to "Deslogar", destroy_admin_session_path, method: :delete %>
-  <br>
-  <%= link_to "Editar conta", edit_admin_registration_path %>
+<div class="bg-gray-200 p-4 rounded-lg shadow-md">
+  <div class="flex flex-col items-center justify-center">
+    <h1 class="text-2xl font-semibold mb-4">Clinica UltraMaster Dentes</h1>
+    <% email = current_admin.email %>
+    <% username = email.split("@").first %>
+    <h2 class="text-lg font-semibold mb-4">Bem vindo <%= username %> à sua dashboard</h2>
+  </div>
+
+  <% if admin_signed_in? %>
+    <div class="mt-4">
+      <nav class="bg-space-y-2">
+        <div class="max-w-7x1 mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-lg font-semibold mb-4">Cadastros</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded h-16">
+              <%= link_to "Cadastrar paciente", new_patient_path, class: "btn-primary" %>
+            </div>
+            <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded h-16">
+              <%= link_to "Cadastrar dentista", new_dentist_path, class: "btn-primary" %>
+            </div>
+            <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded h-16">
+              <%= link_to "Atendimentos", atendimentos_url, class: "btn-primary" %>
+            </div>
+          </div>
+          <h2 class="text-lg font-semibold mb-4">Listagens</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded h-16">
+              <%= link_to "Listar todos pacientes", patients_url, class: "btn-primary" %>
+            </div>
+            <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded h-16">
+              <%= link_to "Listar todos dentistas", dentists_url, class: "btn-primary" %>
+            </div>
+          </div>
+          <h2 class="text-lg font-semibold mb-4">Buscas</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded h-16">
+              <%= link_to "Buscar paciente", search_paciente_path, class: "btn-primary" %>
+            </div>
+            <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded h-16">
+              <%= link_to "Buscar dentista", search_dentist_path, class: "btn-primary" %>
+            </div>
+            <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded h-16">
+              <%= link_to "Buscar Atendimento", search_atendimento_path, class: "btn-primary" %>
+            </div>
+          </div>
+          <h2 class="text-lg font-semibold mb-4">Ações da conta</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded w-24 h-8"> <!-- A largura foi definida para 6rem (24/4) -->
+              <%= link_to "Deslogar", destroy_admin_session_path, method: :delete, class: "btn-danger" %>
+            </div>
+            <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded w-24 h-8">
+              <%= link_to "Editar conta", edit_admin_registration_path, class: "btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
 <% else %>
-  <%= link_to "Criar conta", new_admin_registration_path %>
-  <br>
-  <%= link_to "Login", new_admin_session_path %>
-<% end %>
+    <div class="mt-4">
+      <h2 class="text-lg font-semibold mb-2">Ações:</h2>
+      <ul class="space-y-2">
+        <li>
+          <%= link_to "Criar conta", new_admin_registration_path, class: "btn-primary" %>
+        </li>
+        <li>
+          <%= link_to "Login", new_admin_session_path, class: "btn-primary" %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>

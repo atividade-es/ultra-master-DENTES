@@ -1,71 +1,121 @@
-<%= form_with model: @dentist do |form| %>
+<%= form_with model: dentist do |form| %>
   <% if dentist.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(dentist.errors.count, "erro") %> ocorreram durante o cadastro:</h2>
-      <ul>
+    <div class="bg-red-100 p-4 rounded-lg mb-4">
+      <h2 class="text-red-700 font-semibold mb-2"><%= pluralize(dentist.errors.count, "error") %> ocorreram durante o cadastro:</h2>
+      <ul class="list-disc list-inside text-red-600">
         <% dentist.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  <%= form.label :nome %>
-  <%= form.text_field :nome %>
 
-  <%= form.label :especializacao %>
-  <%= form.select :especializacao, ['Ortodontia', 'Endodontia', 'Implantodontia', 'Clínico Geral', 'Periodontia', 'Odontopediatria', 'Cirurgia Bucomaxilofacial'] %>
+  <nav class="flex justify-between p-4">
+    <%= link_to "Home Dashbord", root_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+    <%= link_to "Dentistas", dentists_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  </nav>
+  <div class="bg-blue-400 p-4 rounded-lg mb-4">
+    <h2 class="text-white text-lg font-semibold mb-2">
+      <% if @dentist.new_record? %>
+        Formulário de Cadastro de Dentista
+      <% else %>
+        Formulário de Edição de Dentista
+      <% end %>
+    </h2>
 
-  <%= form.label :cro, 'CRO' %>
-  <%= form.text_field :cro %>
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <%= form.label :nome, class: "text-white font-semibold" %>
+        <%= form.text_field :nome, class: "w-full bg-white rounded p-2" %>
+      </div>
 
-  <h3>Dias de Atendimento:</h3>
-  <%= form.label :disponivel_segunda, 'Segunda-feira' %>
-  <%= form.check_box :disponivel_segunda %>
+      <div>
+        <%= form.label :especializacao, class: "text-white font-semibold" %>
+        <%= form.select :especializacao, ['Ortodontia', 'Endodontia', 'Implantodontia', 'Clínico Geral', 'Periodontia', 'Odontopediatria', 'Cirurgia Bucomaxilofacial'], {}, class: "w-full bg-white rounded p-2" %>
+      </div>
 
-  <%= form.label :disponivel_terca, 'Terça-feira' %>
-  <%= form.check_box :disponivel_terca %>
+      <div>
+        <%= form.label :cro, 'CRO', class: "text-white font-semibold" %>
+        <%= form.text_field :cro, class: "w-full bg-white rounded p-2" %>
+      </div>
 
-  <%= form.label :disponivel_quarta, 'Quarta-feira' %>
-  <%= form.check_box :disponivel_quarta %>
+      <div>
+        <%= form.label "Contato", class: "text-white font-semibold" %>
+        <%= form.text_field :contato, class: "w-full bg-white rounded p-2" %>
+      </div>
 
-  <%= form.label :disponivel_quinta, 'Quinta-feira' %>
-  <%= form.check_box :disponivel_quinta %>
+      <div>
+        <h3 class="text-white font-semibold mt-4">Dias de Atendimento:</h3>
+        <div class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-3 gap-2">
+          <div>
+            <%= form.label :disponivel_segunda, 'Segunda-feira', class: "text-white" %>
+            <%= form.check_box :disponivel_segunda, class: "text-blue-600" %>
+          </div>
 
-  <%= form.label :disponivel_sexta, 'Sexta-feira' %>
-  <%= form.check_box :disponivel_sexta %>
+          <div>
+            <%= form.label :disponivel_terca, 'Terça-feira', class: "text-white" %>
+            <%= form.check_box :disponivel_terca, class: "text-blue-600" %>
+          </div>
 
-  <%= form.label :disponivel_sabado, 'Sábado' %>
-  <%= form.check_box :disponivel_sabado %>
+          <div>
+            <%= form.label :disponivel_quarta, 'Quarta-feira', class: "text-white" %>
+            <%= form.check_box :disponivel_quarta, class: "text-blue-600" %>
+          </div>
 
-  <%= form.label :disponivel_domingo, 'Domingo' %>
-  <%= form.check_box :disponivel_domingo %>
+          <div>
+            <%= form.label :disponivel_quinta, 'Quinta-feira', class: "text-white" %>
+            <%= form.check_box :disponivel_quinta, class: "text-blue-600" %>
+          </div>
 
-  <h3>Horário de Atendimento</h3>
-  <%= form.label :horario_chegada, 'Horário de Chegada' %>
-  <%= form.time_select :horario_chegada, { minute_step: 15, start_hour: 6, end_hour: 16 }, { class: 'form-control' } %>
+          <div>
+            <%= form.label :disponivel_sexta, 'Sexta-feira', class: "text-white" %>
+            <%= form.check_box :disponivel_sexta, class: "text-blue-600" %>
+          </div>
 
-  <p>
+          <div>
+            <%= form.label :disponivel_sabado, 'Sábado', class: "text-white" %>
+            <%= form.check_box :disponivel_sabado, class: "text-blue-600" %>
+          </div>
 
-  <%= form.label :horario_saida, 'Horário de Saída' %>
-  <%= form.time_select :horario_saida, { minute_step: 15, start_hour: 12, end_hour: 22 }, { class: 'form-control' } %>
+          <div>
+            <%= form.label :disponivel_domingo, 'Domingo', class: "text-white" %>
+            <%= form.check_box :disponivel_domingo, class: "text-blue-600" %>
+          </div>
+        </div>
+      </div>
 
-  <p></p>
+      <div>
+        <%= form.label :endereco, class: "text-white font-semibold" %>
+        <%= form.text_area :endereco, class: "w-full bg-white rounded p-2" %>
+      </div>
 
-  <%= form.label :contato %>
-  <%= form.text_field :contato %>
+      <div>
+        <%= form.label :horario_chegada, 'Horário de Chegada', class: "text-white block" %>
+        <div class="flex items-center">
+          <%= form.time_select :horario_chegada, { minute_step: 15, start_hour: 6, end_hour: 16 }, { class: 'block w-24 p-2 bg-white rounded mr-2' } %>
+        </div>
+      </div>
 
-  <%= form.label :email %>
-  <%= form.text_field :email %>
+      <div>
+        <%= form.label :horario_saida, 'Horário de Saída', class: "text-white block" %>
+        <div class="flex items-center">
+          <%= form.time_select :horario_saida, { minute_step: 15, start_hour: 12, end_hour: 22 }, { class: 'block w-24 p-2 bg-white rounded mr-2' } %>
+        </div>
+      </div>
 
-  <p></p>
+      <div>
+        <%= form.label :contato, class: "text-white font-semibold" %>
+        <%= form.text_field :contato, class: "w-full bg-white rounded p-2" %>
+      </div>
 
-  <%= form.submit %>
+      <div>
+        <%= form.label :email, class: "text-white font-semibold" %>
+        <%= form.text_field :email, class: "w-full bg-white rounded p-2" %>
+      </div>
 
-  <p></p>
-
-  <div class="text-center">
-    <%= link_to "<button>Dentist list</button>".html_safe, dentists_path, class: "btn btn-secondary" %>
-    <%= link_to "<button>Home page</button>".html_safe, root_path, class: "btn btn-primary" %>
+    </div>
   </div>
-
+  <div class="text-center">
+    <%= form.submit "Cadastrar", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
+  </div>
 <% end %>

@@ -1,9 +1,34 @@
-<h1>Dentistas</h1>
+<div align="center">
+  <h1>Listagem dos Dentistas</h1>
+</div>
+<nav class="flex justify-between p-4">
+  <%= link_to "Home Dashboard", root_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  <%= link_to "Cadastrar dentista", new_dentist_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+</nav>
 
-<% @dentists.each do |dentist| %>
-  <%= link_to dentist.nome, dentist %>
-<% end %>
-<p>
-  <%= link_to "Cadastrar dentista", new_dentist_path %>
-<p>
-  <%= link_to 'Voltar', root_path %>
+<div class="bg-blue-400 p-4 rounded-lg mb-4">
+  <table class="border-collapse border-2 border-white mx-auto">
+    <thead>
+    <tr>
+      <th class="border border-white p-2">Nome</th>
+      <th class="border border-white p-2">Especialização</th>
+      <th class="border border-white p-2" colspan="3">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @dentists.each do |dentist| %>
+      <tr>
+        <td class="border border-white p-2">
+          <p class="text-white font-semibold"><%= dentist.nome %></p>
+        </td>
+        <td class="border border-white p-2">
+          <p class="text-white font-semibold"><%= dentist.especializacao %></p>
+        </td>
+        <td class="border border-white p-2"><%= link_to 'Mostrar', dentist, class: "text-white font-semibold hover:underline" %></td>
+        <td class="border border-white p-2"><%= link_to 'Editar', edit_dentist_path(dentist), class: "edit-link text-white font-semibold hover:underline" %></td>
+        <td class="border border-white p-2"><%= link_to "Excluir", dentist_path(dentist), class: 'delete-link', data: { turbo_method: :delete }, class: "text-white font-semibold hover:underline" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
