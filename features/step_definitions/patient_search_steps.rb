@@ -1,6 +1,6 @@
 Given('I am in homepage') do
   visit '/'
-  expect(page).to have_content('Welcome')
+  expect(page).to have_content('Clinica UltraMaster Dentes')
 end
 
 When('I click on the patient search link') do
@@ -19,7 +19,7 @@ Given('I visit the patient creation page') do
 end
 
 And('I click on the patient create button') do
-  click_on 'Create Patient'
+  click_on 'Cadastrar'
 end
 
 And('I am in the patient search page') do

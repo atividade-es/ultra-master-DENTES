@@ -33,9 +33,6 @@ class DentistsController < ApplicationController
   end
 
   def destroy
-    @dentist.destroy
-    redirect_to dentists_url, notice: 'Dentist was successfully destroyed.'
-
     @dentist = Dentist.find(params[:id])
     begin
       @dentist.destroy

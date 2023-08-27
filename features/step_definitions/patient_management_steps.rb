@@ -17,7 +17,9 @@ When('I visit patient index page') do
 end
 
 When('I click on the delete link on the patient page') do
-  click_on 'Deletar'
+  within('table tbody tr:first-child') do
+    click_link 'Excluir'
+  end
 end
 
 Then('I do not see {string} on page') do |name|
@@ -25,17 +27,20 @@ Then('I do not see {string} on page') do |name|
 end
 
 When('I click on the edit link of the patient') do
-  click_on 'Editar'
+  within('table tbody tr:first-child') do
+    click_on 'Editar'
+  end
 end
 
-And('I update the patient\'s name to {string}') do |name|
+And('I update the patient\'s name to {string} and cpf to {int}') do |name, cpf|
   fill_in 'patient_name', with: name
+  fill_in 'patient_cpf', with: cpf
+  fill_in 'patient_email', with: 'patient@email.com'
+  fill_in 'patient_contato', with: '81912345678'
+  fill_in 'patient_data_nascimento', with: '01/01/2000'
+  fill_in 'patient_endereco', with: 'Avenida Brasil'
 end
 
 When('I click on the patient update button') do
-  click_on "Update Patient"
-end
-
-And('I click on the {string} link') do |name|
-  click_on name
+  click_on "Cadastrar"
 end

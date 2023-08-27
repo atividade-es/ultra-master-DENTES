@@ -1,6 +1,6 @@
 Given('I visit the dentist registration page') do
   visit 'dentists/new'
-  expect(page).to have_content("Cadastrar Dentista")
+  expect(page).to have_content("Cadastro de Dentista")
 end
 
 And('I check {string},{string} and {string}') do |check1, check2, check3|
@@ -10,7 +10,7 @@ And('I check {string},{string} and {string}') do |check1, check2, check3|
 end
 
 And('I click on the dentist create button') do
-  click_button "Create Dentist"
+  click_button "Cadastrar"
 end
 
 And('I visit the dentist page') do
@@ -18,7 +18,7 @@ And('I visit the dentist page') do
 end
 
 When('I click on the delete link on the dentist page') do
-  click_on 'Excluir Dentista'
+  click_link 'Excluir Dentista'
 end
 
 Then('I see the name of {string} displayed') do |name|
@@ -29,9 +29,9 @@ When('I visit dentist index page') do
   visit 'dentists/'
 end
 
-When('I click on the name of the desired dentist') do
+When('I click to show the dentist') do
   expect(page).to have_content('Dr. Drake Ramoray')
-  click_on "Dr. Drake Ramoray"
+  click_link "Mostrar"
 end
 
 When('I click on the edit link of the desired dentist') do
@@ -43,7 +43,7 @@ When('I update the dentist\'s name to {string}') do |new_name|
 end
 
 When('I click on the dentist update button') do
-  click_on "Update Dentist"
+  click_on "Cadastrar"
 end
 
 When('I fill dentist name with {string}, especializacao with {string}, cro with {string}') do |name, especializacao, cro|

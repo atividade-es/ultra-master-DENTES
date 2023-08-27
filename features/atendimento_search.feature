@@ -23,7 +23,7 @@ Feature: Busca de atendimentos
     And I fill dentist contact with '1234567890' and dentist email with 'drake@example.com'
     And I click on the dentist create button
     When I am in homepage
-    And I click on the atendimento index page link
+    And I click on the atendimento button
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
@@ -48,7 +48,7 @@ Feature: Busca de atendimentos
     And I fill dentist contact with '1234567890' and dentist email with 'drake@example.com'
     And I click on the dentist create button
     When I am in homepage
-    And I click on the atendimento index page link
+    And I click on the atendimento button
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
@@ -73,7 +73,7 @@ Feature: Busca de atendimentos
     And I fill dentist contact with '1234567890' and dentist email with 'drake@example.com'
     And I click on the dentist create button
     When I am in homepage
-    And I click on the atendimento index page link
+    And I click on the atendimento button
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
@@ -105,7 +105,7 @@ Feature: Busca de atendimentos
     And I fill dentist contact with '1234567890' and dentist email with 'drake@example.com'
     And I click on the dentist create button
     When I am in homepage
-    And I click on the atendimento index page link
+    And I click on the atendimento button
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'

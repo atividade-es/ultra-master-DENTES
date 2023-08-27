@@ -8,9 +8,9 @@ Feature: Manage atendimento
 
   Scenario: Open the create page
     Given I am in homepage
-    When I click on the atendimento index page link
+    When I click on the atendimento button
     And I click on the atendimento creation page link
-    Then I see the text 'Novo Atendimento'
+    Then I see the text 'Cadastro de Atendimento'
 
   Scenario: Add an Atendimento is successful
     Given I visit the patient creation page
@@ -24,7 +24,7 @@ Feature: Manage atendimento
     And I fill dentist contact with '1234567890' and dentist email with 'drake@example.com'
     And I click on the dentist create button
     When I am in homepage
-    And I click on the atendimento index page link
+    And I click on the atendimento button
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
@@ -35,10 +35,10 @@ Feature: Manage atendimento
 
     Scenario: Add an atendimento with missing fields failed
     When I am in homepage
-    And I click on the atendimento index page link
+    And I click on the atendimento button
     And I click on the atendimento creation page link
     And I click on the atendimento create button
-    Then I see the text 'erros ocorreram'
+    Then I see the text 'error'
 
   Scenario: Remove an atendimento
     Given I visit the patient creation page
@@ -52,15 +52,16 @@ Feature: Manage atendimento
     And I fill dentist contact with '1234567890' and dentist email with 'drake@example.com'
     And I click on the dentist create button
     When I am in homepage
-    And I click on the atendimento index page link
+    And I click on the atendimento button
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
     And I enter the atendimento date and time '2024-08-12 15:00:00'
     And I fill atendimento observation with 'Observacao do atendimento'
     And I click on the atendimento create button
+    And I check 'Atendimento foi criado com sucesso'
     When I am in homepage
-    And I click on the atendimento index page link
+    And I click on the atendimento button
     And I click on atendimento delete button
     Then I see the text 'Atendimento excluido com sucesso.'
 
@@ -76,7 +77,7 @@ Feature: Manage atendimento
     And I fill dentist contact with '1234567890' and dentist email with 'drake@example.com'
     And I click on the dentist create button
     When I am in homepage
-    And I click on the atendimento index page link
+    And I click on the atendimento button
     And I click on the atendimento creation page link
     And I select atendimento dentist with 'Dr. Drake Ramoray'
     And I select atendimento patient with 'Nome do Paciente'
@@ -84,7 +85,7 @@ Feature: Manage atendimento
     And I fill atendimento observation with 'Observacao do atendimento'
     And I click on the atendimento create button
     When I am in homepage
-    And I click on the atendimento index page link
+    And I click on the atendimento button
     And I click on the atendimento edit page link
     And I fill atendimento observation with 'Nova Observacao do atendimento'
     And I click on the atendimento update button
