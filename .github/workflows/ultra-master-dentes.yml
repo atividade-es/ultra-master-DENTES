@@ -52,6 +52,9 @@ jobs:
       - name: Verify Rails Installation
         run: rails -v
 
+      - name: Install Tailwind CSS
+        run: rails tailwindcss:install
+
       - name: Run Tests
         env:
           PG_DATABASE: postgres
