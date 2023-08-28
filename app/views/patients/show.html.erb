@@ -1,108 +1,36 @@
-<table border="1" bgcolor="#daa520" align="center">
-  <tr>
-    <td>
-      <table border="2" align="center" bgcolor="#5f9ea0">
-        <tr>
-          <td colspan="2">
-            <div align="center">
-              Dados do Paciente
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Nome:
-          </td>
-          <td>
-            <%= @patient.name %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            E-mail:
-          </td>
-          <td>
-            <%= @patient.email %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            CPF:
-          </td>
-          <td>
-            <%= @patient.cpf %>
-          </td>
-        </tr>
-        <!-- Adicione os novos campos aqui -->
-        <tr>
-          <td>
-            Contato:
-          </td>
-          <td>
-            <%= @patient.contato %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Data de Nascimento:
-          </td>
-          <td>
-            <%= @patient.data_nascimento %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Gênero:
-          </td>
-          <td>
-            <%= @patient.genero %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Endereço:
-          </td>
-          <td>
-            <%= @patient.endereco %>
-          </td>
-        </tr>
-        <!-- Fim dos novos campos -->
-      </table>
-      <br>
-    </td>
-  </tr>
-</table>
-<br>
-<table border="2" align="center" bgcolor="#228b22">
-  <tr>
-    <td>
-      <table>
-        <tr>
-          <td>
-            <%= link_to "Editar", edit_patient_path(@patient) %>
-          </td>
-          <td>
-            [img]
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <table>
-        <tr>
-          <td>
-            <%= link_to "Deletar", patient_path(@patient), data: {
-              turbo_method: :delete,
-              turbo_confirm: "Tem certeza?"
-            } %>
-          </td>
-          <td>
-            [img]
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+<nav class="flex justify-between p-4">
+  <%= link_to "Home Dashboard", root_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  <%= link_to 'Voltar', patients_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+</nav>
+
+<div class="bg-blue-400 p-4 rounded-lg mb-4">
+  <div class="text-white text-lg font-semibold mb-2" align="center">
+    <h1>Detalhes do Paciente</h1>
+  </div>
+
+  <div class="text-white font-semibold">
+    <p><strong>Nome:</strong> <%=@patient.name %></p>
+    <p><strong>Email:</strong> <%= @patient.email %></p>
+    <p><strong>CPF:</strong> <%= @patient.cpf %></p>
+    <p><strong>Contato:</strong> <%= @patient.contato %></p>
+    <p><strong>Data de Nascimento:</strong> <%= @patient.data_nascimento %></p>
+    <p><strong>Gênero:</strong> <%= @patient.genero %></p>
+    <p><strong>Endereco:</strong> <%= @patient.endereco %></p>
+  </div>
+
+</div>
+
+<div align="center">
+  <%= link_to "Editar",
+              edit_patient_path(@patient),
+              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+  %>
+  <%= link_to "Deletar",
+              patient_path(@patient),
+              data: {
+                turbo_method: :delete,
+                turbo_confirm: "Tem certeza?"
+              },
+              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+  %>
+</div>

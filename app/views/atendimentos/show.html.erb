@@ -1,13 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Detalhes do Atendimento</h1>
-<p><strong>Dentista:</strong> <%= @atendimento.dentist.nome %></p>
-<p><strong>Paciente:</strong> <%= @atendimento.patient.name %></p>
-<p><strong>Data e Hora:</strong> <%= @atendimento.data_hora %></p>
-<p><strong>Descrição:</strong> <%= @atendimento.observacao %></p>
+<nav class="flex justify-between p-4">
+  <%= link_to "Home Dashboard", root_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  <%= link_to 'Voltar', atendimentos_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+</nav>
 
-<%= link_to 'Editar', edit_atendimento_path(@atendimento) %> |
-<%= link_to 'Voltar', atendimentos_path %> |
-<%= link_to "Desmarcar", atendimento_path(@atendimento), data: {
-  turbo_method: :delete
-} %>
+<div class="bg-blue-400 p-4 rounded-lg mb-4">
+  <div class="text-white text-lg font-semibold mb-2" align="center">
+    <h1>Detalhes do Atendimento</h1>
+  </div>
+
+  <div class="text-white font-semibold">
+    <p><strong>Dentista:</strong> <%= @atendimento.dentist.nome %></p>
+    <p><strong>Paciente:</strong> <%= @atendimento.patient.name %></p>
+    <p><strong>Data e Hora:</strong> <%= @atendimento.data_hora %></p>
+    <p><strong>Descrição:</strong> <%= @atendimento.observacao %></p>
+  </div>
+</div>
+
+
+<div align="center">
+  <%= link_to 'Editar',
+              edit_atendimento_path(@atendimento),
+              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+  %>
+  <%= link_to "Desmarcar",
+              atendimento_path(@atendimento),
+              data: { turbo_method: :delete },
+              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+  %>
+</div>

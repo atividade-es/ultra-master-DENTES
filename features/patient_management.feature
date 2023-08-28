@@ -15,7 +15,7 @@ Feature: Manage patient
     Given I visit the patient creation page
     When I fill name 'Nome do Paciente', cpf '12369874510', email 'patient@email.com', phone '81912345678', birth '01/01/2000', gender 'Feminino', address 'Avenida Brasil'
     And I click on the patient create button
-    Then I see the text 'Dados do Paciente'
+    Then I see the text 'Detalhes do Paciente'
 
   Scenario: Add a patient with missing fields failed
     Given I visit the patient creation page
