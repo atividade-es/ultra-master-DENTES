@@ -3,8 +3,8 @@
   <%= link_to 'Voltar', patients_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
 </nav>
 
-<div class="bg-blue-400 p-4 rounded-lg mb-4">
-  <div class="text-white text-lg font-semibold mb-2" align="center">
+<div class="bg-blue-400 p-4 rounded-lg mb-4 flex flex-col inline-grid">
+  <div class="text-white text-lg font-semibold mb-2 text-center">
     <h1>Detalhes do Paciente</h1>
   </div>
 
@@ -18,19 +18,19 @@
     <p><strong>Endereco:</strong> <%= @patient.endereco %></p>
   </div>
 
+  <div class="mt-4 text-center">
+    <%= link_to "Editar",
+                edit_patient_path(@patient),
+                class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+    %>
+    <%= link_to "Deletar",
+                patient_path(@patient),
+                data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Tem certeza?"
+                },
+                class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+    %>
+  </div>
 </div>
 
-<div align="center">
-  <%= link_to "Editar",
-              edit_patient_path(@patient),
-              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
-  %>
-  <%= link_to "Deletar",
-              patient_path(@patient),
-              data: {
-                turbo_method: :delete,
-                turbo_confirm: "Tem certeza?"
-              },
-              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
-  %>
-</div>

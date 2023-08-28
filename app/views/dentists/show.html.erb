@@ -3,7 +3,7 @@
   <%= link_to 'Voltar', dentists_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
 </nav>
 
-<div class="bg-blue-400 p-4 rounded-lg mb-4">
+<div class="bg-blue-400 p-4 rounded-lg mb-4 flex flex-col inline-grid">
   <div class="text-white text-lg font-semibold mb-2" align="center">
     <h1>Detalhes do Dentista</h1>
   </div>
@@ -24,16 +24,16 @@
       <%= dias_atendimento.join(', ') %>
     </p>
   </div>
+  <div class="mt-4">
+    <%= link_to 'Editar',
+                edit_dentist_path(@dentist),
+                class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+    %>
+    <%= link_to "Excluir Dentista",
+                dentist_path(@dentist),
+                data: { turbo_method: :delete },
+                class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+    %>
+  </div>
 </div>
 
-<div align="center">
-  <%= link_to 'Editar',
-              edit_dentist_path(@dentist),
-              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
-  %>
-  <%= link_to "Excluir Dentista",
-              dentist_path(@dentist),
-              data: { turbo_method: :delete },
-              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
-  %>
-</div>
