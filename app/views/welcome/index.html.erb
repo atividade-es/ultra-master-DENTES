@@ -1,4 +1,4 @@
-<div class="bg-gray-200 p-4 rounded-lg shadow-md">
+<div class="bg-gray-200 p-4 rounded-lg ">
   <div class="flex flex-col items-center justify-center">
     <h1 class="text-2xl font-semibold mb-4">Clinica UltraMaster Dentes</h1>
     <% email = current_admin.email %>
@@ -46,7 +46,7 @@
           <h2 class="text-lg font-semibold mb-4">Ações da conta</h2>
           <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded w-24 h-8"> <!-- A largura foi definida para 6rem (24/4) -->
-              <%= link_to "Deslogar", destroy_admin_session_path, method: :delete, class: "btn-danger" %>
+              <%= button_to "Deslogar", destroy_admin_session_path, method: :delete, class: "btn-danger" %>
             </div>
             <div class="flex items-center justify-center bg-blue-400 bg-opacity-50 text-black rounded w-24 h-8">
               <%= link_to "Editar conta", edit_admin_registration_path, class: "btn-primary" %>

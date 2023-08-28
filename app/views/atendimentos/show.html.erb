@@ -5,7 +5,7 @@
   <%= link_to 'Voltar', atendimentos_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
 </nav>
 
-<div class="bg-blue-400 p-4 rounded-lg mb-4">
+<div class="bg-blue-400 p-4 rounded-lg mb-4 flex flex-col inline-grid">
   <div class="text-white text-lg font-semibold mb-2" align="center">
     <h1>Detalhes do Atendimento</h1>
   </div>
@@ -16,17 +16,16 @@
     <p><strong>Data e Hora:</strong> <%= @atendimento.data_hora %></p>
     <p><strong>Descrição:</strong> <%= @atendimento.observacao %></p>
   </div>
+  <div class="mt-4">
+    <%= link_to 'Editar',
+                edit_atendimento_path(@atendimento),
+                class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+    %>
+    <%= link_to "Desmarcar",
+                atendimento_path(@atendimento),
+                data: { turbo_method: :delete },
+                class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+    %>
+  </div>
 </div>
 
-
-<div align="center">
-  <%= link_to 'Editar',
-              edit_atendimento_path(@atendimento),
-              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
-  %>
-  <%= link_to "Desmarcar",
-              atendimento_path(@atendimento),
-              data: { turbo_method: :delete },
-              class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
-  %>
-</div>
