@@ -16,7 +16,7 @@ class Dentist < ApplicationRecord
   validates :contato, presence: true, format: { with: /\A[0-9()\-.]+\z/, message: "deve estar no formato de telefone válido" }
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  has_many :atendimentos
+  has_many :atendimentos, dependent: :destroy
   has_many :patients, through: :atendimentos
 
   def available_on?(datetime)

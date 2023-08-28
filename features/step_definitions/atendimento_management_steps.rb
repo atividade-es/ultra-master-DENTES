@@ -1,9 +1,9 @@
-When('I click on the atendimento index page link') do
-  click_link 'Atendimentos'
+When('I click on the atendimento button') do
+  click_on 'Atendimentos'
 end
 
 And('I click on the atendimento creation page link') do
-  click_link 'Novo atendimento'
+  click_link 'Novo Atendimento'
 end
 
 And('I select atendimento dentist with {string}') do |dentist|
@@ -24,7 +24,7 @@ And('I fill atendimento observation with {string}') do |observation|
 end
 
 And('I click on the atendimento create button') do
-  click_on 'Create Atendimento'
+  click_on 'Cadastrar'
 end
 
 And('I click on the atendimento edit page link') do
@@ -32,9 +32,13 @@ And('I click on the atendimento edit page link') do
 end
 
 And('I click on atendimento delete button') do
-  click_link 'Desmarcar'
+  click_link 'Excluir'
 end
 
 And('I click on the atendimento update button') do
-  click_on 'Update Atendimento'
+  click_on 'Cadastrar'
+end
+
+And('I check {string}') do |message|
+  expect(page).to have_content(message)
 end

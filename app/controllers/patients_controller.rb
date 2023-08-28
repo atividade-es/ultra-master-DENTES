@@ -35,8 +35,13 @@ class PatientsController < ApplicationController
 
   def destroy
     @patient = Patient.find(params[:id])
-    @patient.destroy
-    redirect_to root_path, status: :see_other
+    begin
+      @patient.destroy
+      redirect_to patients_url, status: :see_other, notice: 'Paciente excluido com sucesso.'
+    rescue ActiveRecord::InvalidForeignKey
+      flash[:alert] = "Este paciente não pode ser excluído porque está relacionado a outros registros."
+      redirect_to patients_url
+    end
   end
 
   def search

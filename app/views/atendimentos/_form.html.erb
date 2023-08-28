@@ -1,33 +1,53 @@
 <%= form_with model: @atendimento do |form| %>
-
   <% if @atendimento.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@atendimento.errors.count, "erros") %> ocorreram:</h3>
-      <ul>
-        <% @atendimento.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+    <div class="bg-red-100 p-4 rounded-lg mb-4">
+      <h2 class="text-red-700 font-semibold mb-2"><%= pluralize(@atendimento.errors.count, "error") %> ocorreram durante o cadastro:</h2>
+      <ul class="list-disc list-inside text-red-600">
+        <% @atendimento.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.label :dentist_id %>
-    <%= form.collection_select :dentist_id, Dentist.all, :id, :nome, prompt: "Selecione um Dentista"%>
-  </div>
-  <div>
-    <%= form.label :patient_id %>
-    <%= form.collection_select :patient_id, Patient.all, :id, :name, prompt: "Selecione um Paciente"%>
-  </div>
-  <div>
-    <%= form.label :data_hora, "Data e Hora:" %>
-    <%= form.datetime_local_field :data_hora, value: @atendimento.data_hora&.strftime("%Y-%m-%dT%H:%M") %>
-  </div>
-  <div>
-    <%= form.label :observacao %>
-    <%= form.text_field :observacao %>
-  </div>
 
-  <div>
-    <%= form.submit %>
+  <nav class="flex justify-between p-4">
+    <%= link_to "Home Dashbord", root_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+    <%= link_to "Atendimentos", atendimentos_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  </nav>
+  <div class="bg-blue-400 p-4 rounded-lg mb-4">
+    <h2 class="text-white text-lg font-semibold mb-2">
+      <% if @atendimento.new_record? %>
+        Formulário de Cadastro Atendimento
+      <% else %>
+        Formulário de Edição do Atendimento
+      <% end %>
+    </h2>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <%= form.label :dentist_id, "Selecione o Dentista", class: "text-white font-semibold" %>
+        <%= form.collection_select :dentist_id, Dentist.all, :id, :nome, prompt: "Selecione um Dentista", class: "w-full bg-white rounded p-2" %>
+      </div>
+
+      <div>
+        <%= form.label :patient_id, "Selecione o Paciente", class: "text-white font-semibold" %>
+        <%= form.collection_select :patient_id, Patient.all, :id, :name, prompt: "Selecione um Paciente", class: "w-full bg-white rounded p-2" %>
+      </div>
+
+      <div>
+        <%= form.label :data_hora, "Data e Hora:", class: "text-white font-semibold"%>
+        <%= form.datetime_local_field :data_hora, value: @atendimento.data_hora&.strftime("%Y-%m-%dT%H:%M"), class: "w-full bg-white rounded p-2" %>
+      </div>
+
+      <div>
+        <%= form.label :observacao, class: "text-white font-semibold" %>
+        <%= form.text_area :observacao, class: "w-full bg-white rounded p-2" %>
+      </div>
+
+    </div>
+  </div>
+  <div class="text-center">
+    <%= form.submit "Cadastrar", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
   </div>
 <% end %>
+

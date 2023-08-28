@@ -15,7 +15,7 @@ Feature: Manage patient
     Given I visit the patient creation page
     When I fill name 'Nome do Paciente', cpf '12369874510', email 'patient@email.com', phone '81912345678', birth '01/01/2000', gender 'Feminino', address 'Avenida Brasil'
     And I click on the patient create button
-    Then I see the text 'Dados do Paciente'
+    Then I see the text 'Detalhes do Paciente'
 
   Scenario: Add a patient with missing fields failed
     Given I visit the patient creation page
@@ -44,17 +44,15 @@ Feature: Manage patient
     When I fill name 'Nome do Paciente', cpf '12369874510', email 'patient@email.com', phone '81912345678', birth '01/01/2000', gender 'Feminino', address 'Avenida Brasil'
     And I click on the patient create button
     And I visit patient index page
-    And I click on the 'Nome do Paciente' link
     And I click on the delete link on the patient page
-    Then I do not see 'Nome do Paciente' on page
+    Then I see the text 'Paciente excluido com sucesso.'
 
   Scenario: Edit a patient name
     Given I visit the patient creation page
     When I fill name 'Nome do Paciente', cpf '12369874510', email 'patient@email.com', phone '81912345678', birth '01/01/2000', gender 'Feminino', address 'Avenida Brasil'
     And I click on the patient create button
     And I visit patient index page
-    And I click on the 'Nome do Paciente' link
     And I click on the edit link of the patient
-    And I update the patient's name to "Sr. Armstrong"
+    And I update the patient's name to "Sr. Armstrong" and cpf to 96385274100
     And I click on the patient update button
     Then I see the text 'Sr. Armstrong'

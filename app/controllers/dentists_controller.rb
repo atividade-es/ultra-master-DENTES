@@ -33,8 +33,14 @@ class DentistsController < ApplicationController
   end
 
   def destroy
-    @dentist.destroy
-    redirect_to dentists_url, notice: 'Dentist was successfully destroyed.'
+    @dentist = Dentist.find(params[:id])
+    begin
+      @dentist.destroy
+      redirect_to dentists_url, status: :see_other, notice: 'Dentista excluido com sucesso.'
+    rescue ActiveRecord::InvalidForeignKey
+      flash[:alert] = "Este Dentista não pode ser excluído porque está relacionado a outros registros."
+      redirect_to dentists_url
+    end
   end
 
   def search
