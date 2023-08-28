@@ -1,48 +1,59 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Buscar Paciente</title>
-</head>
+<nav class="flex justify-between p-4">
+  <%= link_to "Home Dashboard", root_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  <%= link_to "Novo Paciente", new_patient_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  <%= link_to "Lista de Pacientes", patients_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  <%= link_to 'Voltar', root_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+</nav>
+
 <body>
-<h1>Buscar Paciente</h1>
 
-<%= form_with model: @patient, url: search_paciente_path, method: :get do |form| %>
-  <div>
-    <label for="search_name">Nome:</label>
-    <%= form.text_field :name, id: "patient_name" %>
-  </div>
+  <%= form_with model: @patient, url: search_paciente_path, method: :get do |form| %>
+    <div class="bg-blue-400 p-4 rounded-lg mb-4">
+      <div class="text-white text-lg font-semibold mb-2" align="center">
+        <h1>Buscar Paciente</h1>
+      </div>
 
-  <div>
-    <label for="search_cpf">CPF:</label>
-    <%= form.text_field :cpf, id: "patient_cpf" %>
-  </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="search_name" class="text-white font-semibold">Nome:</label>
+          <%= form.text_field :name, class: "w-full bg-white rounded p-2", id: "patient_name" %>
+        </div>
 
-  <div>
-    <%= form.submit "Buscar" %>
-  </div>
-<% end %>
+        <div>
+          <label for="search_cpf" class="text-white font-semibold">CPF:</label>
+          <%= form.text_field :cpf, class: "w-full bg-white rounded p-2", id: "patient_cpf" %>
+        </div>
+      </div>
+    </div>
 
-<% if @patients.present? %>
-  <h2>Resultados da busca:</h2>
-  <ul>
-    <% @patients.each do |patient| %>
-      <li>
-        <p><strong>Nome:</strong> <%= patient.name %></p>
-        <p><strong>Email:</strong> <%= patient.email %></p>
-        <p><strong>CPF:</strong> <%= patient.cpf %></p>
-        <hr>
-      </li>
+    <div align="center">
+      <%= form.submit "Buscar",
+                      class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+      %>
+    </div>
+  <% end %>
+
+  <% if @patients.present? %>
+    <div class="bg-blue-400 p-4 rounded-lg mb-4">
+      <div class="text-white text-lg font-semibold mb-2" align="center">
+        <h2>Resultados da busca:</h2>
+      </div>
+
+      <div class="text-white font-semibold">
+        <ul>
+          <% @patients.each do |patient| %>
+            <li>
+              <p><strong>Nome:</strong> <%= patient.name %></p>
+              <p><strong>Email:</strong> <%= patient.email %></p>
+              <p><strong>CPF:</strong> <%= patient.cpf %></p>
+              <hr>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <% else %>
+      <p>Nenhum paciente encontrado.</p>
     <% end %>
-  </ul>
-<% else %>
-  <p>Nenhum paciente encontrado.</p>
-<% end %>
-
-<div class="text-center">
-  <%= link_to "<button>New patient</button>".html_safe, new_patient_path, class: "btn btn-primary" %>
-  <%= link_to "<button>List of patients</button>".html_safe, patients_path, class: "btn btn-secondary" %>
-  <%= link_to "<button>Home page</button>".html_safe, root_path, class: "btn btn-secondary" %>
-</div>
 
 </body>
-</html>
