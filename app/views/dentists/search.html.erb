@@ -1,52 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Buscar Dentista</title>
-</head>
+<nav class="flex justify-between p-4">
+  <%= link_to "Home Dashboard", root_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  <%= link_to "Novo Dentista", new_dentist_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  <%= link_to "Lista de Dentistas", dentists_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+  <%= link_to 'Voltar', root_path, class: "text-blue-900 hover:text-blue-700 mx-2" %>
+</nav>
+
 <body>
-<h1>Buscar Dentista</h1>
 
-<%= form_with model: @dentist, url: search_dentist_path, method: :get do |form| %>
-  <div>
-    <label for="search_name">Nome:</label>
-    <%= form.text_field :nome, id: "dentist_nome" %>
-  </div>
+  <%= form_with model: @dentist, url: search_dentist_path, method: :get do |form| %>
+    <div class="bg-blue-400 p-4 rounded-lg mb-4">
+      <div class="text-white text-lg font-semibold mb-2" align="center">
+        <h1>Buscar Dentista</h1>
+      </div>
 
-  <div>
-    <label for="search_cro">CRO:</label>
-    <%= form.text_field :cro, id: "dentist_cro" %>
-  </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="search_name" class="text-white font-semibold">Nome:</label>
+          <%= form.text_field :nome, id: "dentist_nome", class: "w-full bg-white rounded p-2" %>
+        </div>
 
-  <div>
-    <%= form.submit "Buscar" %>
-  </div>
-<% end %>
+        <div>
+          <label for="search_cro" class="text-white font-semibold">CRO:</label>
+          <%= form.text_field :cro, id: "dentist_cro", class: "w-full bg-white rounded p-2" %>
+        </div>
+      </div>
+    </div>
 
-<% if @dentists.present? %>
-  <h2>Resultados da busca:</h2>
-  <ul>
-    <% @dentists.each do |dentist| %>
-      <li>
-        <p><strong>Nome:</strong> <%= dentist.nome %></p>
-        <p><strong>Email:</strong> <%= dentist.email %></p>
-        <p><strong>Contato:</strong> <%= dentist.contato %></p>
-        <p><strong>CRO:</strong> <%= dentist.cro %></p>
-        <p><strong>Especialização:</strong> <%= dentist.especializacao %></p>
-        <p><strong>Horario de chegada:</strong> <%= dentist.horario_chegada %></p>
-        <p><strong>Horario de saida:</strong> <%= dentist.horario_saida %></p>
-        <hr>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>Nenhum dentista encontrado.</p>
-<% end %>
+    <div align="center">
+      <%= form.submit "Buscar",
+                      class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+      %>
+    </div>
+  <% end %>
 
-<div class="text-center">
-  <%= link_to "<button>New dentist</button>".html_safe, new_dentist_path, class: "btn btn-primary" %>
-  <%= link_to "<button>List of dentists</button>".html_safe, dentists_path, class: "btn btn-secondary" %>
-  <%= link_to "<button>Home page</button>".html_safe, root_path, class: "btn btn-secondary" %>
-</div>
+  <% if @dentists.present? %>
+    <div class="bg-blue-400 p-4 rounded-lg mb-4">
+      <div class="text-white text-lg font-semibold mb-2" align="center">
+        <h2>Resultados da busca:</h2>
+      </div>
+
+      <div class="text-white font-semibold">
+        <ul>
+          <% @dentists.each do |dentist| %>
+            <li>
+              <p><strong>Nome:</strong> <%= dentist.nome %></p>
+              <p><strong>Email:</strong> <%= dentist.email %></p>
+              <p><strong>Contato:</strong> <%= dentist.contato %></p>
+              <p><strong>CRO:</strong> <%= dentist.cro %></p>
+              <p><strong>Especialização:</strong> <%= dentist.especializacao %></p>
+              <p><strong>Horario de chegada:</strong> <%= dentist.horario_chegada %></p>
+              <p><strong>Horario de saida:</strong> <%= dentist.horario_saida %></p>
+              <hr>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% else %>
+    <p>Nenhum dentista encontrado.</p>
+  <% end %>
 
 </body>
-</html>
